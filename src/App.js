@@ -6,6 +6,7 @@ import NewBookForm from './NewBookForm';
 import BookList from './BookList';
 import Footer from './Footer';
 
+//! localStorage not working properly when refreshed
 const App = () => {
   const [books, setBooks] = useState([]);
   const onSubmit = (newBook) => {

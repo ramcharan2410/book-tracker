@@ -70,7 +70,6 @@ const BookItem = ({ books, book, setBooks }) => {
       setProgress(newProgress);
       setInputValue(clampedInputValue);
     } else {
-      // Handle case where inputValue is not a number (e.g., empty input)
       setInputValue(0);
       setProgress(0);
     }
