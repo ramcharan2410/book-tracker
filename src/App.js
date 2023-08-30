@@ -6,11 +6,17 @@ import NewBookForm from './NewBookForm';
 import BookList from './BookList';
 import Footer from './Footer';
 
-//! localStorage not working properly when refreshed
-//! Add and Delete form should occupy entire space
-//! Also add Plan to Read Category, with options=> (Currently Reading?) and (Delete) (Color: White)
+//! Add and Delete buttons in the should occupy entire space
 const App = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(() => {
+    const localBooks = localStorage.getItem('BOOKS');
+    if (localBooks === null) {
+      return [];
+    }
+    else {
+      return JSON.parse(localBooks);
+    }
+  });
   const onSubmit = (newBook) => {
     const bookItem = {
       id: uuidv4(),
@@ -18,19 +24,6 @@ const App = () => {
     };
     setBooks(prevBooks => [...prevBooks, bookItem]);
   }
-  useEffect(() => {
-    try {
-      const localBooks = localStorage.getItem('BOOKS');
-      if (localBooks === null) {
-        setBooks([]);
-      } else {
-        setBooks(JSON.parse(localBooks));
-      }
-    } catch (error) {
-      console.error('Error loading data from localStorage:', error);
-      setBooks([]);
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('BOOKS', JSON.stringify(books));
