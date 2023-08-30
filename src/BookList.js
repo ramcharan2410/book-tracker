@@ -22,7 +22,20 @@ const BookList = ({ books, setBooks }) => {
   // })
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-  }
+  };
+  const handleSetCurrReading = (bookId) => {
+    setBooks((currBooks) => {
+      const updatedBooks = currBooks.map((book) => {
+        if (book.id === bookId) {
+          return { ...book, status: 'Currently Reading' };
+        }
+        else {
+          return book;
+        }
+      });
+      return updatedBooks;
+    })
+  };
   const filteredBooks = books.filter((book) => {
     if (selectedCategory === 'All') {
       return true;
@@ -41,7 +54,7 @@ const BookList = ({ books, setBooks }) => {
         >Currently Reading: {countBooksByCategory('Currently Reading')}</button>
         <button onClick={() => handleCategoryClick('Finished Reading')}
         >Finished Reading: {countBooksByCategory('Finished Reading')}</button>
-        <button onClick={() => handleCategoryClick('Plan to Read: ')}
+        <button onClick={() => handleCategoryClick('Plan to Read')}
         >Plan to Read: {countBooksByCategory('Plan to Read')}</button>
       </div>
       {filteredBooks.length > 0 ? (
@@ -55,6 +68,7 @@ const BookList = ({ books, setBooks }) => {
                     books={books}
                     setBooks={setBooks}
                     key={book.id}
+                    handleSetCurrReading={handleSetCurrReading}
                   />
                 );
               })}
@@ -69,6 +83,7 @@ const BookList = ({ books, setBooks }) => {
                     books={books}
                     setBooks={setBooks}
                     key={book.id}
+                    handleSetCurrReading={handleSetCurrReading}
                   />
                 );
               })}

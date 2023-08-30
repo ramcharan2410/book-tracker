@@ -7,6 +7,8 @@ import BookList from './BookList';
 import Footer from './Footer';
 
 //! localStorage not working properly when refreshed
+//! Add and Delete form should occupy entire space
+//! Also add Plan to Read Category, with options=> (Currently Reading?) and (Delete) (Color: White)
 const App = () => {
   const [books, setBooks] = useState([]);
   const onSubmit = (newBook) => {

@@ -173,6 +173,10 @@ select{
     background-color: blue;
     color: #eee;
 }
+.set-curr-reading:hover{
+    background-color: green;
+    color: #eee;
+}
 .delete-book:hover{
     background-color: red;
     color: #eee;
