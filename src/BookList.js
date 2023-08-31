@@ -14,12 +14,6 @@ const BookList = ({ books, setBooks }) => {
     });
     return filteredBooks.length;
   }
-  // const [categoryCounts, setCategoryCounts] = useState({
-  //   'All': countBooksByCategory('All'),
-  //   'Currently Reading': countBooksByCategory('Currently Reading'),
-  //   'Finished Reading': countBooksByCategory('Finished Reading'),
-  //   'Plan to Read': countBooksByCategory('Plan to Read')
-  // })
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };

@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 const BookItem = ({ books, book, setBooks, handleSetCurrReading }) => {
   const [bookDisplay, setBookDisplay] = useState(false);
   const [isEditable, setIsEditable] = useState(false);
-  const [inputValue, setInputValue] = useState(book.pagesRead || 0); // Initialize with book.pagesRead or 0
+  const [inputValue, setInputValue] = useState(book.pagesRead || 0);
   const [progress, setProgress] = useState(
-    book.pagesRead ? Math.floor((book.pagesRead / book.pages) * 100) : 0 // Initialize with calculated progress or 0
+    book.pagesRead ? Math.floor((book.pagesRead / book.pages) * 100) : 0
   );
   const [updateButton, setUpdateButton] = useState('Edit Progress');
   const inputRef = useRef(null);
@@ -44,15 +44,14 @@ const BookItem = ({ books, book, setBooks, handleSetCurrReading }) => {
   const handleUpdateBook = (e) => {
     const inputValue = parseFloat(e.target.value);
     if (!isNaN(inputValue)) {
-      // Ensure inputValue is not greater than the total number of pages
-      const clampedInputValue = Math.min(inputValue, book.pages);
+      const updatedInputValue = Math.min(inputValue, book.pages);
 
-      const newStatus = clampedInputValue === book.pages ? 'Finished Reading' : 'Currently Reading';
-      const newProgress = clampedInputValue === 0 ? 0 : Math.floor((clampedInputValue / book.pages) * 100);
+      const newStatus = updatedInputValue === book.pages ? 'Finished Reading' : 'Currently Reading';
+      const newProgress = updatedInputValue === 0 ? 0 : Math.floor((updatedInputValue / book.pages) * 100);
 
       const updatedBook = {
         ...book,
-        pagesRead: clampedInputValue,
+        pagesRead: updatedInputValue,
         status: newStatus,
       };
 
@@ -68,7 +67,7 @@ const BookItem = ({ books, book, setBooks, handleSetCurrReading }) => {
       });
 
       setProgress(newProgress);
-      setInputValue(clampedInputValue);
+      setInputValue(updatedInputValue);
     } else {
       setInputValue(0);
       setProgress(0);

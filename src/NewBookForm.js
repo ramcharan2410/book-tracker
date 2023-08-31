@@ -166,18 +166,18 @@ const NewBookForm = ({ onSubmit }) => {
                         />
                     </div>
                     <br />
-                    <div className='add-delete'>
-                        <button
-                            id='add'
-                            className='add'
-                            type='submit'
-                        >Add</button>
-                        <button
-                            id='delete'
-                            className='delete'
-                            onClick={handleDeleteForm}
-                        >Delete</button>
-                    </div>
+                </div>
+                <div className='add-delete'>
+                    <button
+                        id='add'
+                        className='add'
+                        type='submit'
+                    >Add</button>
+                    <button
+                        id='delete'
+                        className='delete'
+                        onClick={handleDeleteForm}
+                    >Delete</button>
                 </div>
             </form>
         </>
