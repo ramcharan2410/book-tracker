@@ -1,3 +1,14 @@
+# Book Tracker Application
+
+## Table of Contents
+
+1. [Getting Started with Create React App](#getting_started_with_create_react_app)
+2. [Brief Description](#brief-description)
+3. [Screenshots](#screenshots)
+4. [Demos](#demos)
+5. [Features](#features)
+6. [Feedback](#feedback)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -45,26 +56,36 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Brief Description
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Brief Description
 
-### Analyzing the Bundle Size
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- <img src='screenshotswebsite-home.png' alt='Movie Info Website Home' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Movie Info Website Home</p>
+<img src='screenshots/movie-search.png' alt='Movie Search' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Movie Search</p>
+<img src='screenshots/prev-next.png' alt='Previous and Next options' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Previous and Next options</p> -->
 
-### Making a Progressive Web App
+## Demos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- <img src='gifs/categories.gif' alt='Categories Dropdown' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Categories dropdown</p>
+<img src='gifs/overview.gif' alt='Overview of a movie' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Overview of a movie</p>
+<img src='gifs/prev-next.gif' alt='Previous and Next' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Previous and next pages</p>
+<img src='gifs/movie-search.gif' alt='Movie Search' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
+<p style='text-align:center'>Movie search</p> -->
 
-### Advanced Configuration
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- View only the respective category books you want at a time by choosing one of the following categories: All, Currently Reading, Finished Reading, and Plan to Read.
+- Can also view your book details, update and track your book progress easily.
+- Your data will be stored in your default browser's local Storage, thus preventing data loss even when exiting application or refreshing the page.
 
-### Deployment
+## Feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any feedback, please reach me out at ramcharanvakkalanka@gmail.com
