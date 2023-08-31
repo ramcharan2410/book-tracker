@@ -82,9 +82,9 @@ Brief Description
 
 ## Features
 
-- View only the respective category books you want at a time by choosing one of the following categories: All, Currently Reading, Finished Reading, and Plan to Read.
-- Can also view your book details, update and track your book progress easily.
-- Your data will be stored in your default browser's local Storage, thus preventing data loss even when exiting application or refreshing the page.
+- View only the specific category books you want at a time by choosing one of the following categories: All, Currently Reading, Finished Reading, and Plan to Read.
+- Can also view your book details, and update and track your book progress easily.
+- Your data will be stored in your default browser's local Storage, thus preventing data loss even when you exit application or refresh the page.
 
 ## Feedback
 
