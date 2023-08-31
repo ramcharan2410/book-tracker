@@ -6,7 +6,6 @@ import NewBookForm from './NewBookForm';
 import BookList from './BookList';
 import Footer from './Footer';
 
-//! Add and Delete buttons in the should occupy entire space
 const App = () => {
   const [books, setBooks] = useState(() => {
     const localBooks = localStorage.getItem('BOOKS');
