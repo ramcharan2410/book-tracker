@@ -51,24 +51,36 @@ Refer to the below given documentation for the language used to build this proje
 
 ## Screenshots
 
+### BookTracker Home
+
 <img src='/src/img/bookTrackerHome.png' alt='BookTracker Home' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>BookTracker Home</p> 
+
+### Add Book Form
+
 <img src='/src/img/addBookForm.png' alt='Add Book Form' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Add Book Form</p>
+
+### Viewing your book
+
 <img src='/src/img/viewingYourBook.png' alt='Viewing your book' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Viewing your book</p>
 
 ## Demos
 
+### Viewing different Categories
+
 <img src='/src/gifs/viewingDifferentCategories.gif' alt='Viewing different Categories' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Viewing different Categories</p>
+
+### Viewing your book details
+
 <img src='/src/gifs/viewingYourBookDetails.gif' alt='Viewing your book details' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Viewing your book details</p>
+
+### Updating a book
+
 <img src='/src/gifs/updatingABook-1.gif' alt='Updating a book' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
 <img src='/src/gifs/updatingABook-2.gif' alt='Updating a book' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Updating a book</p>
+
+### Deleting a book
+
 <img src='/src/gifs/deletingABook.gif' alt='Deleting a book' style='display:block;margin-left:auto;margin-right:auto;width:50%;'>
-<p style='text-align:center'>Deleting a book</p>
 
 ## Details
 
