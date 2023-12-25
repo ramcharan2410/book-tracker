@@ -43,7 +43,7 @@ To deploy this project, proceed with the following steps:
 
 Refer to the below given documentation for the language used to build this project.
 
-- [Documentation for React.js](https://legacy.reactjs.org/docs/getting-started.html)
+- [Documentation for React.js](https://react.dev/)
 
 ## Features
 
