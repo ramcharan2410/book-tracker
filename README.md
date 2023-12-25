@@ -14,9 +14,11 @@
 
 ## Brief Description
 
-- This project is a book tracker application built using React.js that enables users to organize, manage, and keep track of their reading habits and reading progress.
-- This application allows its users to add books to their library, categorize them by status (finished reading, currently reading, plan to read).
-- It also offers features such as editing progress of your books and deleting books from your library as well.
+The "book-tracker" project is a React.js-based application designed for organizing and managing reading habits.
+
+Users can add books to their library, categorize them by reading status (finished reading, currently reading, plan to read), and utilize features like progress editing and book deletion.
+
+The application facilitates efficient tracking of reading progress and overall book management.
 
 ## Deployment
 
