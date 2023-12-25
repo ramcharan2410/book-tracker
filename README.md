@@ -14,7 +14,9 @@
 
 ## Brief Description
 
-Brief Description
+- This project is a book tracker application built using React.js that enables users to organize, manage, and keep track of their reading habits and reading progress.
+- This application allows its users to add books to their library, categorize them by status (finished reading, currently reading, plan to read).
+- It also offers features such as editing progress of your books and deleting books from your library as well.
 
 ## Deployment
 
@@ -87,6 +89,8 @@ Refer to the below given documentation for the language used to build this proje
 Name: Vakkalanka Ram Charan
 
 University/College: Indian Institute of Technology Bhubaneshwar
+
+Batch: 2021-2025
 
 Department: Electronics and Communication Engineering
 
