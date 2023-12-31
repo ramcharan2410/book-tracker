@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: black;
+}
+.app-header {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: -25%;
+    margin-bottom: 15%;
+}
+
+.app-tagline {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.signForm {
+    width: 100%;
+    margin: auto;
+    border: 5px solid #333;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+}
+
+.signHeader {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid #333;
+}
+
+.signHeader button {
+    flex: 1;
+    font: inherit;
+    font-weight: bold;
+    background-color: #333;
+    color: #eee;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+.signHeader button:nth-child(1){
+    border-top-left-radius: 4px;
+}
+.signHeader button:nth-child(2){
+    border-top-right-radius: 4px;
+}
+.signHeader button:hover {
+    background-color: #555;
+}
+
+.signUp {
+    padding: 20px;
+}
+
+.login {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+label {
+    margin-bottom: 8px;
+}
+.errorLabel{
+    color: red;
+}
+input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.signUp-button,
+.login-button {
+    width: 50%;
+    padding: 10px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.signUp-button:hover,
+.login-button:hover {
+    background-color: #555;
+}
+.user-exists, .invalid-credentials, .user-not-found{
+    color:red;
+}
