@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Poppins";
+}
+.container{
+    background-color: rgba(255, 255, 255, 0.502);
+    width:70%;
+    margin:0 auto;
+    text-align: center;
+    min-height: 100vh;
+    border-radius: 20px;
+}
+/*Add New Book Button*/
+
+/* Status Bar */
+
+/* Book List */
+
+/* Each Book */
+
+/* In Each List Item */
+
+/* Footer */
+.footer{
+    color: black;
+    font: inherit;
+    font-weight:bold;
+    text-align: center;
+}
+

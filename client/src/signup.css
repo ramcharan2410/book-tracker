@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+.signup-navbar {
+    background-color: black;
+    color: #eee;
+    display: flex;
+    padding: 10px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.login-instead {
+    font-size: 1.1rem;
+    margin-right: 30px;
+}
+.login-instead a{
+    text-decoration: none;
+}
+.signup-form{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px solid black;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 10px;
+    min-height: 50vh;
+    font-size: 1.2rem;
+}
+input{
+    font: inherit;
+    padding: 5px;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+input[type="text"]{
+    width: 30%;
+}
+input[type="email"]{
+    width: 50%;
+}
+input[type="password"] {
+    width: 30%;
+}
+.signup-button{
+    font: inherit;
+    padding: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.signup-button:hover{
+    background-color: green;
+    color: #eee;
+}
+.errorLabel, .user-exists{
+    color: red;
+}
