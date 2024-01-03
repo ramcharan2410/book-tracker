@@ -30,6 +30,7 @@ body{
     color: black;
     font: inherit;
     font-weight:bold;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 

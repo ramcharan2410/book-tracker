@@ -17,6 +17,7 @@ body {
     background-color: black;
     color: #eee;
     display: flex;
+    justify-content: space-between;
     padding: 10px;
 }
 
@@ -28,9 +29,15 @@ body {
 .login-instead {
     font-size: 1.1rem;
     margin-right: 30px;
+    display: flex;
+    align-items: center;
 }
 .login-instead a{
     text-decoration: none;
+    margin-left: 3px;
+}
+.login-instead a:visited{
+    color: blue;
 }
 .signup-form{
     background-color: rgba(255, 255, 255, 0.8);
@@ -41,6 +48,7 @@ body {
     padding: 10px;
     min-height: 50vh;
     font-size: 1.2rem;
+    border-radius: 30px;
 }
 input{
     font: inherit;

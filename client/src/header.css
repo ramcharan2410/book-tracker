@@ -11,10 +11,10 @@ body {
 }
 .home-navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: rgb(255,255,255,0.8);
     margin-bottom: 3px;
-    padding: 3px;
+    padding: 10px;
     position:sticky;
     top:0;
 }
@@ -33,6 +33,7 @@ body {
     padding: 3px;
     border-radius: 10px;
     cursor:pointer;
+    margin-right: 10px;
 }
 .logout:hover{
     background-color: red;

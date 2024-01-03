@@ -6,10 +6,9 @@ import './login.css'
 const Login = (props) => {
   const { userName, setUserName, setEmail, setIsAuthenticated } = props
   const [password, setPassword] = useState('')
-  const [passwordError, setPasswordError] = useState('')
   const [userNotFound, setUserNotFound] = useState(false)
   const [wrongUserName, setWrongUserName] = useState('')
-  const [invalidCredentials, setInvalidCredentials] = useState(false)
+  const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
@@ -30,10 +29,12 @@ const Login = (props) => {
         navigate(`/users/${userName}`)
       } else if (data.message === 'Login failed: Invalid Credentials') {
         setIsAuthenticated(false)
-        setInvalidCredentials(true)
+        setUserNotFound(false)
+        setInvalidPassword(true)
       } else if (data.message === 'Login failed: User not found') {
         setIsAuthenticated(false)
         setUserNotFound(true)
+        setInvalidPassword(false)
         setWrongUserName(userName)
       }
     } catch (error) {
@@ -73,8 +74,8 @@ const Login = (props) => {
             }}
           />
           <br />
-          {invalidCredentials && (
-            <p className="invalid-credentials">Wrong password</p>
+          {invalidPassword && (
+            <p className="invalid-password">Wrong password</p>
           )}
           {userNotFound && (
             <p className="user-not-found">
@@ -86,6 +87,7 @@ const Login = (props) => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   )
 }

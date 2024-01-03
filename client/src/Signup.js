@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Footer from './Footer'
 import './signup.css'
 
 const Signup = (props) => {
@@ -109,6 +110,7 @@ const Signup = (props) => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   )
 }

@@ -11,14 +11,14 @@ body {
     background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .login-navbar{
     background-color: black;
     color: #eee;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
 }
 .title{
@@ -28,9 +28,15 @@ body {
 .signup-instead{
     font-size: 1.1rem;
     margin-right: 30px;
+    display:flex;
+    align-items: center;
 }
 .signup-instead a {
     text-decoration: none;
+    margin-left: 3px;
+}
+.signup-instead a:visited{
+    color: blue;
 }
 .login-form {
     background-color: rgba(255, 255, 255, 0.8);
@@ -41,6 +47,7 @@ body {
     padding: 10px;
     min-height: 30vh;
     font-size: 1.2rem;
+    border-radius: 30px;
 }
 
 input {
@@ -72,6 +79,6 @@ input[type="password"] {
     background-color: green;
     color: #eee;
 }
-.errorLabel, .user-not-found, .invalid-credentials{
+.errorLabel, .user-not-found, .invalid-password{
     color:red;
 }

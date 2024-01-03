@@ -18,6 +18,7 @@ body {
 .view-book {
     width: 100%;
     font: inherit;
+    font-style: italic;
     padding: 5px;
 }
 .view-book:hover {
