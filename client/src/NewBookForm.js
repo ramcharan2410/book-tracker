@@ -63,7 +63,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         status: 'Select a status',
         pagesRead: null,
       })
-      setFormDisplay(false)
+      setFormDisplay(true)
     }
   }
   const handleFormChange = () => {
@@ -74,6 +74,9 @@ const NewBookForm = ({ userName, setBooks }) => {
     )
   }
   const changeNewBookInfo = (e) => {
+    if (bookAlreadyPresent) {
+      setBookAlreadyPresent(false)
+    }
     const { name, value } = e.target
 
     if (name === 'status' && value === 'Finished Reading') {

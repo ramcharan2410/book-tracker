@@ -13,9 +13,10 @@
 }
 .status-bar button:hover {
     background-color: aqua;
-    border-color: aqua;
 }
-
+.active{
+    background-color: aqua;
+}
 .book-list-container {
     margin: 0 auto;
     width: 70%;

@@ -41,16 +41,28 @@ const BookList = ({ userName, books, setBooks }) => {
   return (
     <>
       <div className="status-bar">
-        <button onClick={() => handleCategoryClick('All')}>
+        <button
+          onClick={() => handleCategoryClick('All')}
+          className={selectedCategory === 'All' ? 'active' : ''}
+        >
           All: {countBooksByCategory('All')}
         </button>
-        <button onClick={() => handleCategoryClick('Currently Reading')}>
+        <button
+          onClick={() => handleCategoryClick('Currently Reading')}
+          className={selectedCategory === 'Currently Reading' ? 'active' : ''}
+        >
           Currently Reading: {countBooksByCategory('Currently Reading')}
         </button>
-        <button onClick={() => handleCategoryClick('Finished Reading')}>
+        <button
+          onClick={() => handleCategoryClick('Finished Reading')}
+          className={selectedCategory === 'Finished Reading' ? 'active' : ''}
+        >
           Finished Reading: {countBooksByCategory('Finished Reading')}
         </button>
-        <button onClick={() => handleCategoryClick('Plan to Read')}>
+        <button
+          onClick={() => handleCategoryClick('Plan to Read')}
+          className={selectedCategory === 'Plan to Read' ? 'active' : ''}
+        >
           Plan to Read: {countBooksByCategory('Plan to Read')}
         </button>
       </div>
