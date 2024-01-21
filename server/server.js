@@ -7,18 +7,13 @@ const morgan = require('morgan')
 const app = express()
 app.use(morgan('tiny')) // console.log(details of the HTTP request)
 app.use(express.json()) // for parsing JSON requests
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-  )
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200)
-  }
-  next()
-})
+app.use(
+  cors({
+    origin: ['https://book-tracker-sigma.vercel.app'],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  })
+)
 // const PORT = 3001
 const vercelDeployment = 'https://book-tracker-backend.vercel.app'
 
@@ -97,7 +92,9 @@ app.post('/signup', async (req, res) => {
       .json({ message: 'Signup failed: Internal Server Error' })
   }
 })
-
+app.get('/', (req, res) => {
+  res.json('Hello')
+})
 app.post('/login', async (req, res) => {
   // console.log(req.body)
   const { userName, password } = req.body
