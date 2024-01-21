@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
-import { inject } from '@vercel/analytics'
-inject()
+import { Analytics } from '@vercel/analytics/react'
 import Home from './components/Home/Home.js'
 import Signup from './components/Signup/Signup.js'
 import Login from './components/Login/Login.js'
@@ -13,6 +12,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Analytics />
         <Routes>
           <Route
             path="/signup"
