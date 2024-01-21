@@ -4,6 +4,7 @@ import Header from '../Header/Header.js'
 import NewBookForm from '../NewBookForm/NewBookForm.js'
 import BookList from '../BookList/BookList.js'
 import Footer from '../Footer/Footer.js'
+import './home.css'
 
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])

@@ -49,7 +49,7 @@ const Signup = (props) => {
     }
   }
   return (
-    <div className="signup-page">
+    <>
       <div className="signup-navbar">
         <LocalLibraryRoundedIcon fontSize="large" />
         <div className="title">Book Tracker</div>
@@ -148,7 +148,7 @@ const Signup = (props) => {
         </form>
       </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

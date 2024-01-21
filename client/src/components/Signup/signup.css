@@ -11,7 +11,7 @@ body {
     background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+    max-height: 100vh;
 }
 .signup-navbar {
     background-color: black;
@@ -52,6 +52,7 @@ body {
     min-height: 50vh;
     font-size: 1.2rem;
     border-radius: 30px;
+    margin-bottom: 215px;
 }
 input{
     font: inherit;

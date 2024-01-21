@@ -78,12 +78,17 @@ const NewBookForm = ({ userName, setBooks }) => {
       setBookAlreadyPresent(false)
     }
     const { name, value } = e.target
-
+    if (
+      name === 'status' &&
+      (value === 'Currently Reading' || value === 'Plan to Read')
+    ) {
+      newBook.pagesRead = ''
+    }
     if (name === 'status' && value === 'Finished Reading') {
-      const pages = parseFloat(newBook.pages)
+      const pages = parseInt(newBook.pages)
       setNewBook({ ...newBook, status: 'Finished Reading', pagesRead: pages })
     } else if (name === 'year' || name === 'pages' || name === 'pagesRead') {
-      const numericValue = parseFloat(value)
+      const numericValue = parseInt(value)
       setNewBook({ ...newBook, [name]: numericValue })
     } else {
       setNewBook({ ...newBook, [name]: value })
@@ -115,6 +120,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         onSubmit={(e) => handleSubmit(e)}
         className="new-book-form"
         style={{ display: formDisplay ? 'block' : 'none' }}
+        noValidate
       >
         <div className="new-book-details">
           <label htmlFor="name">Name of the Book: </label>
