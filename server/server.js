@@ -9,9 +9,7 @@ app.use(morgan('tiny')) // console.log(details of the HTTP request)
 app.use(express.json()) // for parsing JSON requests
 app.use(
   cors({
-    origin: ['https://book-tracker-sigma.vercel.app'],
-    methods: ['GET', 'POST'],
-    credentials: true,
+    origin: 'https://book-tracker-sigma.vercel.app',
   })
 )
 const PORT = 3001
