@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Header from './Header'
-import NewBookForm from './NewBookForm'
-import BookList from './BookList'
-import Footer from './Footer'
+import Header from '../Header/Header.js'
+import NewBookForm from '../NewBookForm/NewBookForm.js'
+import BookList from '../BookList/BookList.js'
+import Footer from '../Footer/Footer.js'
 
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
 import './header.css'
 
 const Header = ({ userName, email }) => {
@@ -13,6 +14,7 @@ const Header = ({ userName, email }) => {
   }
   return (
     <div className="home-navbar">
+      <LocalLibraryRoundedIcon fontSize="large" />
       <div className="title" onClick={reloadPage}>
         Book Tracker
       </div>

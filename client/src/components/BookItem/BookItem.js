@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import LinearProgress from '@mui/material/LinearProgress'
 import './bookItem.css'
 
 const BookItem = ({
@@ -161,6 +162,8 @@ const BookItem = ({
               <span>{inputValue}</span>
             )}{' '}
             of {book.pages} ({progress}%)
+            <br />
+            <LinearProgress variant="determinate" value={progress} />
             <br />
             Genre: {book.genre}
             <div className="update-delete">

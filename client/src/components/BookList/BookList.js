@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import BookItem from './BookItem'
+import BookItem from '../BookItem/BookItem.js'
 import React from 'react'
 import './bookList.css'
 

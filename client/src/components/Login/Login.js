@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Footer from './Footer'
+import Footer from '../Footer/Footer.js'
+import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
 import './login.css'
 
 const Login = (props) => {
@@ -27,7 +28,7 @@ const Login = (props) => {
         setEmail(data.email)
         setIsAuthenticated(true)
         navigate(`/users/${userName}`)
-      } else if (data.message === 'Login failed: Invalid Credentials') {
+      } else if (data.message === 'Login failed: Invalid credentials') {
         setIsAuthenticated(false)
         setUserNotFound(false)
         setInvalidPassword(true)
@@ -44,6 +45,7 @@ const Login = (props) => {
   return (
     <div className="login-page">
       <div className="login-navbar">
+        <LocalLibraryRoundedIcon fontSize="large" />
         <div className="title">Book Tracker</div>
         <p className="signup-instead">
           Don't have an account? <a href="/signup">Signup instead</a>
@@ -59,7 +61,10 @@ const Login = (props) => {
             name="login-userName"
             placeholder="Enter your username"
             required
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => {
+              setUserName(e.target.value)
+              setUserNotFound(false)
+            }}
           />
           <br />
           <label htmlFor="login-password">Password:</label>
@@ -71,17 +76,22 @@ const Login = (props) => {
             placeholder="Enter your password"
             onChange={(e) => {
               setPassword(e.target.value)
+              setInvalidPassword(false)
             }}
           />
           <br />
-          {invalidPassword && (
-            <p className="invalid-password">Wrong password</p>
-          )}
-          {userNotFound && (
-            <p className="user-not-found">
-              User with userName {wrongUserName} not found.
-            </p>
-          )}
+          <p
+            className="invalid-password"
+            style={{ display: invalidPassword ? 'block' : 'none' }}
+          >
+            Wrong password
+          </p>
+          <p
+            className="user-not-found"
+            style={{ display: userNotFound ? 'block' : 'none' }}
+          >
+            User with userName {wrongUserName} not found.
+          </p>
           <button type="submit" className="login-button">
             Confirm Login
           </button>

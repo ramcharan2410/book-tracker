@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
-import Home from './Home'
-import Signup from './Signup'
-import Login from './Login'
+import Home from './components/Home/Home.js'
+import Signup from './components/Signup/Signup.js'
+import Login from './components/Login/Login.js'
 import ProtectedRoutes from './ProtectedRoutes'
 const App = () => {
   const [userName, setUserName] = useState('')

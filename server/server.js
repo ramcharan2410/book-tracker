@@ -54,12 +54,19 @@ app.post('/signup', async (req, res) => {
   // console.log(req.body)
   const { userName, email, password } = req.body
   try {
-    const existingUser = await db.get(
-      'SELECT * FROM users WHERE userName = ? OR email = ?',
-      [userName, email]
+    const existingUserName = await db.get(
+      'SELECT * FROM users WHERE userName = ?',
+      [userName]
     )
-    if (existingUser) {
-      return res.status(409).json({ message: 'User already exists' })
+    const existingEmail = await db.get('SELECT * FROM users WHERE email = ?', [
+      email,
+    ])
+    if (existingUserName) {
+      return res.status(409).json({ message: 'UserName already exists' })
+      // 409 => Resource already exists
+    }
+    if (existingEmail) {
+      return res.status(409).json({ message: 'Email already exists' })
       // 409 => Resource already exists
     }
 

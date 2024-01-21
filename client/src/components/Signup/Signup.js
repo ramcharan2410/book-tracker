@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Footer from './Footer'
+import Footer from '../Footer/Footer'
+import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
 import './signup.css'
 
 const Signup = (props) => {
   const { userName, setUserName, email, setEmail, setIsAuthenticated } = props
-  const [userExists, setUserExists] = useState(false)
+  const [userNameExists, setUserNameExists] = useState(false)
+  const [emailExists, setEmailExists] = useState(false)
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -32,9 +34,12 @@ const Signup = (props) => {
 
       const data = await response.json()
       console.log(data)
-      if (data.message === 'User already exists') {
+      if (data.message === 'UserName already exists') {
         setIsAuthenticated(false)
-        setUserExists(true)
+        setUserNameExists(true)
+      } else if (data.message === 'Email already exists') {
+        setIsAuthenticated(false)
+        setEmailExists(true)
       } else if (data.message === 'Signup successful') {
         setIsAuthenticated(true)
         navigate(`/users/${userName}`)
@@ -46,6 +51,7 @@ const Signup = (props) => {
   return (
     <div className="signup-page">
       <div className="signup-navbar">
+        <LocalLibraryRoundedIcon fontSize="large" />
         <div className="title">Book Tracker</div>
         <p className="login-instead">
           Already have an account? <a href="/login">Login instead</a>
@@ -61,7 +67,10 @@ const Signup = (props) => {
             name="signup-username"
             placeholder="Enter a username"
             required
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={(e) => {
+              setUserName(e.target.value)
+              setUserNameExists(false)
+            }}
           />
           <br />
           <label htmlFor="signup-email">Email:</label>
@@ -78,9 +87,17 @@ const Signup = (props) => {
               } else {
                 setEmailError('')
               }
+              setEmailExists(false)
             }}
           />
-          <label className="errorLabel">{emailError}</label>
+          <label
+            className="errorLabel"
+            style={{
+              display: emailError ? 'block' : 'none',
+            }}
+          >
+            {emailError}
+          </label>
           <br />
           <label htmlFor="signup-password">Password:</label>
           <input
@@ -100,11 +117,31 @@ const Signup = (props) => {
               }
             }}
           />
-          <label className="errorLabel">{passwordError}</label>
+          <label
+            className="errorLabel"
+            style={{
+              display: passwordError ? 'block' : 'none',
+            }}
+          >
+            {passwordError}
+          </label>
           <br />
-          {userExists && (
-            <p className="user-exists">User already exists. Please Login.</p>
-          )}
+          <p
+            className="user-exists"
+            style={{
+              display: userNameExists ? 'block' : 'none',
+            }}
+          >
+            UserName already exists. Please Login.
+          </p>
+          <p
+            className="email-exists"
+            style={{
+              display: emailExists ? 'block' : 'none',
+            }}
+          >
+            Email already exists. Please Login.
+          </p>
           <button type="submit" className="signup-button">
             Confirm Sign Up
           </button>
