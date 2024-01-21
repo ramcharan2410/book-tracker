@@ -7,7 +7,10 @@ const morgan = require('morgan')
 const app = express()
 app.use(morgan('tiny')) // console.log(details of the HTTP request)
 app.use(express.json()) // for parsing JSON requests
-app.use(cors())
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  next()
+})
 // const PORT = 3001
 const vercelDeployment = 'https://book-tracker-backend.vercel.app'
 
