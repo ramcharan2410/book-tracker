@@ -17,7 +17,7 @@ const Home = ({ userName, email }) => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/user/${userName}/books`
+          `https://book-tracker-backend.vercel.app/user/${userName}/books`
         )
         const data = await response.json()
         if (data) {

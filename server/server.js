@@ -8,7 +8,8 @@ const app = express()
 app.use(morgan('tiny')) // console.log(details of the HTTP request)
 app.use(express.json()) // for parsing JSON requests
 app.use(cors())
-const PORT = 3001
+// const PORT = 3001
+const vercelDeployment = 'https://book-tracker-backend.vercel.app'
 
 let db
 const initializeDatabase = async () => {
@@ -215,6 +216,6 @@ app.delete('/users/:userName/deleteBook/:id', async (req, res) => {
     return res.status(500).json({ error: 'Internal Server Error' })
   }
 })
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`)
+app.listen(vercelDeployment, () => {
+  console.log(`Server is running on ${vercelDeployment}`)
 })

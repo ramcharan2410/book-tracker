@@ -72,7 +72,7 @@ const BookItem = ({
 
       try {
         const response = await fetch(
-          `http://localhost:3001/users/${userName}/updateBook/${book.id}`,
+          `https://book-tracker-backend.vercel.app/users/${userName}/updateBook/${book.id}`,
           {
             method: 'PUT',
             headers: {
@@ -109,7 +109,7 @@ const BookItem = ({
     })
     try {
       const response = await fetch(
-        `http://localhost:3001/users/${userName}/deleteBook/${book.id}`,
+        `https://book-tracker-backend.vercel.app/users/${userName}/deleteBook/${book.id}`,
         {
           method: 'DELETE',
         }
