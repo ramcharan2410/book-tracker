@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Footer from '../Footer/Footer.js'
 import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
+import Footer from '../Footer/Footer'
 import './login.css'
 
 const Login = (props) => {
@@ -11,6 +11,10 @@ const Login = (props) => {
   const [wrongUserName, setWrongUserName] = useState('')
   const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
+  const getYear = () => {
+    const today = new Date()
+    return today.getFullYear()
+  }
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -43,7 +47,7 @@ const Login = (props) => {
     }
   }
   return (
-    <div className="login-page">
+    <>
       <div className="login-navbar">
         <LocalLibraryRoundedIcon fontSize="large" />
         <div className="title">Book Tracker</div>
@@ -97,8 +101,8 @@ const Login = (props) => {
           </button>
         </form>
       </div>
-      <Footer />
-    </div>
+      <div className="login-footer">Copyright &copy; {getYear()}</div>
+    </>
   )
 }
 

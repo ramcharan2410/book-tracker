@@ -9,7 +9,10 @@ import './home.css'
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
-
+  const getYear = () => {
+    const today = new Date()
+    return today.getFullYear()
+  }
   useEffect(() => {
     const fetchBooks = async () => {
       try {

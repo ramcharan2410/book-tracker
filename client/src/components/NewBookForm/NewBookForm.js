@@ -39,6 +39,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         setBookAlreadyPresent(true)
       } else if (data.message === 'Book added successfully') {
         setBooks((prevBooks) => [...prevBooks, bookItem])
+        setBookAlreadyPresent(false)
       }
     } catch (error) {
       console.error('Error adding book:', error)
@@ -63,6 +64,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         status: 'Select a status',
         pagesRead: null,
       })
+    } else {
       setFormDisplay(true)
     }
   }
@@ -220,11 +222,13 @@ const NewBookForm = ({ userName, setBooks }) => {
             />
           </div>
           <br />
-          {bookAlreadyPresent && (
-            <p className="book-already-present">
-              This book is already present in your library
-            </p>
-          )}
+
+          <p
+            className="book-already-present"
+            style={{ display: bookAlreadyPresent ? 'block' : 'none' }}
+          >
+            This book is already present in your library
+          </p>
         </div>
         <div className="add-delete">
           <button id="add" className="add" type="submit">

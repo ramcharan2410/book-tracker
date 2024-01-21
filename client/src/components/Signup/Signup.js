@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Footer from '../Footer/Footer'
 import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
 import './signup.css'
 
@@ -13,6 +12,10 @@ const Signup = (props) => {
   const [emailError, setEmailError] = useState('')
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
   const navigate = useNavigate()
+  const getYear = () => {
+    const today = new Date()
+    return today.getFullYear()
+  }
   const handleSignupSubmit = async (e) => {
     e.preventDefault()
     if (email.length === 0) {
@@ -147,7 +150,7 @@ const Signup = (props) => {
           </button>
         </form>
       </div>
-      <Footer />
+      <div className="signup-footer">Copyright &copy; {getYear()}</div>
     </>
   )
 }

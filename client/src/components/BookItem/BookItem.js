@@ -146,6 +146,8 @@ const BookItem = ({
             <br />
             Year Published: {book.year}
             <br />
+            Genre: {book.genre}
+            <br />
             Pages Read:{' '}
             {isEditable ? (
               <input
@@ -165,7 +167,6 @@ const BookItem = ({
             <br />
             <LinearProgress variant="determinate" value={progress} />
             <br />
-            Genre: {book.genre}
             <div className="update-delete">
               <button
                 className="update-progress"

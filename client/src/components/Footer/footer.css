@@ -1,9 +1,9 @@
 .footer {
     color: black;
     font: inherit;
-    font-weight: bold;
     display: flex;
     justify-content: center;
+    font-weight: bold;
     position: relative;
     bottom: 0;
 }

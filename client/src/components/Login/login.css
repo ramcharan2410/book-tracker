@@ -17,6 +17,9 @@ body {
 .login-navbar{
     background-color: black;
     color: #eee;
+    width: 100%;
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -27,6 +30,9 @@ body {
     position: fixed;
     margin-left: 32px;
     top: 7px;
+}
+.title:hover{
+    cursor: pointer;
 }
 .signup-instead{
     font-size: 1.1rem;
@@ -51,7 +57,6 @@ body {
     min-height: 30vh;
     font-size: 1.2rem;
     border-radius: 30px;
-    margin-bottom: 375px;
 }
 
 input {
@@ -85,4 +90,12 @@ input[type="password"] {
 }
 .errorLabel, .user-not-found, .invalid-password{
     color:red;
+}
+.login-footer {
+    color: black;
+    font: inherit;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    left: 45%;
 }
