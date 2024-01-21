@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
-import Footer from '../Footer/Footer'
 import './login.css'
 
 const Login = (props) => {
