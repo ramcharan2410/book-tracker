@@ -14,8 +14,7 @@ app.use(
     credentials: true,
   })
 )
-// const PORT = 3001
-const vercelDeployment = 'https://book-tracker-backend.vercel.app'
+const PORT = 3001
 
 let db
 const initializeDatabase = async () => {
@@ -56,7 +55,9 @@ const initializeDatabase = async () => {
 initializeDatabase()
 
 const saltRounds = 10
-
+app.get('/', (req, res) => {
+  res.json('Hello')
+})
 app.post('/signup', async (req, res) => {
   // console.log(req.body)
   const { userName, email, password } = req.body
@@ -91,9 +92,6 @@ app.post('/signup', async (req, res) => {
       .status(400)
       .json({ message: 'Signup failed: Internal Server Error' })
   }
-})
-app.get('/', (req, res) => {
-  res.json('Hello')
 })
 app.post('/login', async (req, res) => {
   // console.log(req.body)
@@ -224,6 +222,6 @@ app.delete('/users/:userName/deleteBook/:id', async (req, res) => {
     return res.status(500).json({ error: 'Internal Server Error' })
   }
 })
-app.listen(vercelDeployment, () => {
-  console.log(`Server is running on ${vercelDeployment}`)
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`)
 })
