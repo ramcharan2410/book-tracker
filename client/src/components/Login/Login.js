@@ -17,16 +17,13 @@ const Login = (props) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(
-        'https://book-tracker-backend.vercel.app/login',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ userName, password }),
-        }
-      )
+      const response = await fetch(`http://localhost:3001/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userName, password }),
+      })
 
       const data = await response.json()
       console.log(data)

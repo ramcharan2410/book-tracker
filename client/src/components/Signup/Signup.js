@@ -27,16 +27,13 @@ const Signup = (props) => {
       return
     }
     try {
-      const response = await fetch(
-        'https://book-tracker-backend.vercel.app/signup',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ userName, email, password }),
-        }
-      )
+      const response = await fetch(`http://localhost:3001/signup`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userName, email, password }),
+      })
 
       const data = await response.json()
       console.log(data)

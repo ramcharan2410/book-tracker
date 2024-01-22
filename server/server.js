@@ -1,56 +1,37 @@
 const express = require('express')
-const { open } = require('sqlite')
-const sqlite3 = require('sqlite3').verbose()
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const morgan = require('morgan')
+const { Pool } = require('pg')
+require('dotenv').config()
 const app = express()
-app.use(morgan('tiny')) // console.log(details of the HTTP request)
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms')) // console.log(details of the HTTP request)
 app.use(express.json()) // for parsing JSON requests
+const postgres_sql_user = process.env.POSTGRES_SQL_USER
+const postgres_sql_host = process.env.POSTGRES_SQL_HOST
+const postgres_sql_password = process.env.POSTGRES_SQL_PASSWORD
+const localhost_client_addr = process.env.LOCALHOST_CLIENT_ADDR
+const vercel_client_addr = process.env.VERCEL_CLIENT_ADDR
+
 app.use(
   cors({
-    origin: 'https://book-tracker-sigma.vercel.app',
+    origin: [localhost_client_addr, vercel_client_addr],
   })
 )
+
+app.use((err, req, res, next) => {
+  console.error('Error:', err.message)
+  res.status(500).json({ error: 'Internal Server Error' })
+})
+
 const PORT = 3001
-
-let db
-const initializeDatabase = async () => {
-  try {
-    db = await open({
-      filename: 'database.db',
-      driver: sqlite3.Database,
-    })
-
-    await db.exec(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      userName TEXT UNIQUE NOT NULL UNIQUE,
-      email TEXT NOT NULL UNIQUE,
-      password TEXT NOT NULL
-    )
-  `)
-
-    await db.exec(`
-    CREATE TABLE IF NOT EXISTS userBooks (
-      id TEXT PRIMARY KEY,
-      userName TEXT NOT NULL,
-      name TEXT NOT NULL,
-      author TEXT NOT NULL,
-      year INTEGER NOT NULL,
-      pages INTEGER NOT NULL,
-      genre TEXT NOT NULL, 
-      status TEXT NOT NULL,
-      pagesRead INTEGER
-    )
-  `)
-    console.log('Database initialized successfully')
-  } catch (error) {
-    console.error('Error initializing database:', error)
-  }
-}
-
-initializeDatabase()
+const pool = new Pool({
+  user: postgres_sql_user,
+  host: postgres_sql_host,
+  database: 'book-tracker',
+  password: postgres_sql_password,
+  port: 5432,
+})
 
 const saltRounds = 10
 app.get('/', (req, res) => {
@@ -60,14 +41,16 @@ app.post('/signup', async (req, res) => {
   // console.log(req.body)
   const { userName, email, password } = req.body
   try {
-    const existingUserName = await db.get(
-      'SELECT * FROM users WHERE userName = ?',
+    const existingUserName = await pool.query(
+      'SELECT * FROM users WHERE userName = $1',
       [userName]
     )
-    const existingEmail = await db.get('SELECT * FROM users WHERE email = ?', [
-      email,
-    ])
+    const existingEmail = await pool.query(
+      'SELECT * FROM users WHERE email = $1',
+      [email]
+    )
     if (existingUserName) {
+      console.log(existingUserName)
       return res.status(409).json({ message: 'UserName already exists' })
       // 409 => Resource already exists
     }
@@ -77,15 +60,15 @@ app.post('/signup', async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, saltRounds)
-    await db.run(
-      'INSERT INTO users (userName, email, password) VALUES (?, ?, ?)',
+    await pool.query(
+      'INSERT INTO users (userName, email, password) VALUES ($1, $2, $3)',
       [userName, email, hashedPassword]
     )
     return res
       .status(200)
       .json({ message: 'Signup successful', userName: userName, email: email })
   } catch (err) {
-    console.error('Signup error:', err)
+    console.error('Signup error:', err.message)
     return res
       .status(400)
       .json({ message: 'Signup failed: Internal Server Error' })
@@ -95,11 +78,11 @@ app.post('/login', async (req, res) => {
   // console.log(req.body)
   const { userName, password } = req.body
   try {
-    const row = await db.get('SELECT * FROM users WHERE userName = ?', [
+    const row = await pool.query('SELECT * FROM users WHERE userName = $1', [
       userName,
     ])
-    // console.log(row)
-    if (row) {
+    console.log(row)
+    if (row.length > 0) {
       const match = await bcrypt.compare(password, row.password)
 
       if (match) {
@@ -128,8 +111,8 @@ app.post('/users/:userName/addBook', async (req, res) => {
   const { userName } = req.params
   const { bookItem } = req.body
   // console.log(userName, bookItem)
-  const existingBook = await db.get(
-    'SELECT * FROM userBooks WHERE userName = ? AND name = ?',
+  const existingBook = await pool.query(
+    'SELECT * FROM userBooks WHERE userName = $1 AND name = $2',
     [userName, bookItem.name]
   )
   if (existingBook) {
@@ -138,10 +121,10 @@ app.post('/users/:userName/addBook', async (req, res) => {
     })
   }
   try {
-    await db.run(
+    await pool.query(
       `
       INSERT INTO userBooks (id, userName, name, author, year, pages, genre, status, pagesRead)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     `,
       [
         bookItem.id,
@@ -168,10 +151,10 @@ app.get('/user/:userName/books', async (req, res) => {
   const { userName } = req.params
 
   try {
-    const books = await db.all(
+    const books = await pool.query(
       `
       SELECT * FROM userBooks
-      WHERE userName = ?
+      WHERE userName = $1
     `,
       [userName]
     )
@@ -187,12 +170,12 @@ app.put('/users/:userName/updateBook/:id', async (req, res) => {
   const { pagesRead, status } = req.body
 
   try {
-    await db.run(
+    await pool.query(
       `
       UPDATE userBooks
-      SET pagesRead = ?,
-          status = ?
-      WHERE userName = ? AND id = ?
+      SET pagesRead = $1,
+          status = $2
+      WHERE userName = $3 AND id = $4
     `,
       [pagesRead, status, userName, id]
     )
@@ -206,10 +189,10 @@ app.delete('/users/:userName/deleteBook/:id', async (req, res) => {
   const { userName, id } = req.params
 
   try {
-    await db.run(
+    await pool.query(
       `
       DELETE FROM userBooks
-      WHERE userName = ? AND id = ?
+      WHERE userName = $1 AND id = $2
     `,
       [userName, id]
     )

@@ -9,15 +9,11 @@ import './home.css'
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
-  const getYear = () => {
-    const today = new Date()
-    return today.getFullYear()
-  }
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `https://book-tracker-backend.vercel.app/user/${userName}/books`
+          `http://localhost:3001/user/${userName}/books`
         )
         const data = await response.json()
         if (data) {

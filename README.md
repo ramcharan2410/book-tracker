@@ -8,10 +8,8 @@
 4. [Dependencies and Libraries Used](#dependencies-and-libraries-used)
 5. [Documentation](#documentation)
 6. [Features](#features)
-7. [Screenshots](#screenshots)
-8. [Demos](#demos)
-9. [Details](#details)
-10. [Feedback](#feedback)
+7. [Details](#details)
+8. [Feedback](#feedback)
 
 ## Brief Description
 
