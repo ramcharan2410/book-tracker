@@ -9,11 +9,13 @@ import './home.css'
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
+  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/user/${userName}/books`
+          `${vercel_server_addr}/user/${userName}/books`
         )
         const data = await response.json()
         if (data) {

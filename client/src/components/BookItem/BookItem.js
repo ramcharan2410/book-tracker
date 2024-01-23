@@ -18,6 +18,9 @@ const BookItem = ({
   const [updateButton, setUpdateButton] = useState('Edit Progress')
   const inputRef = useRef(null)
 
+  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
+
   useEffect(() => {
     if (isEditable && inputRef.current) {
       inputRef.current.focus()
@@ -72,7 +75,7 @@ const BookItem = ({
 
       try {
         const response = await fetch(
-          `http://localhost:3001/users/${userName}/updateBook/${book.id}`,
+          `${vercel_server_addr}/users/${userName}/updateBook/${book.id}`,
           {
             method: 'PUT',
             headers: {
@@ -108,12 +111,9 @@ const BookItem = ({
       return eachBook.id !== bookId
     })
     try {
-      const response = await fetch(
-        `http://localhost:3001/users/${userName}/deleteBook/${book.id}`,
-        {
-          method: 'DELETE',
-        }
-      )
+      const response = await fetch(`/users/${userName}/deleteBook/${book.id}`, {
+        method: 'DELETE',
+      })
       const data = await response.json()
       if (data.message === 'Book deleted successfully') {
         setBooks(updatedBooks)

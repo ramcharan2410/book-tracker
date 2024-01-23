@@ -16,6 +16,8 @@ const NewBookForm = ({ userName, setBooks }) => {
     status: 'Select a status',
     pagesRead: null,
   })
+  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
   const onSubmit = async (newBook) => {
     const bookItem = {
       id: uuidv4(),
@@ -23,7 +25,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     }
     try {
       const response = await fetch(
-        `http://localhost:3001/users/${userName}/addBook`,
+        `${vercel_server_addr}/users/${userName}/addBook`,
         {
           method: 'POST',
           headers: {

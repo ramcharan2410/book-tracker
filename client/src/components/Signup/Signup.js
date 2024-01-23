@@ -12,6 +12,8 @@ const Signup = (props) => {
   const [emailError, setEmailError] = useState('')
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
   const navigate = useNavigate()
+  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -27,7 +29,7 @@ const Signup = (props) => {
       return
     }
     try {
-      const response = await fetch(`http://localhost:3001/signup`, {
+      const response = await fetch(`${vercel_server_addr}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

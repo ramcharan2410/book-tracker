@@ -10,6 +10,8 @@ const Login = (props) => {
   const [wrongUserName, setWrongUserName] = useState('')
   const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
+  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -17,7 +19,7 @@ const Login = (props) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`http://localhost:3001/login`, {
+      const response = await fetch(`${vercel_server_addr}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
