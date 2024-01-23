@@ -226,12 +226,12 @@ app.delete('/users/:userName/deleteBook/:id', async (req, res) => {
 app.on('close', () => {
   client.end().then(() => console.log('Database connection closed'))
 })
-app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`)
+app.listen(vercel_client_addr, () => {
+  console.log(`Server is running on ${vercel_client_addr}`)
 })
 // Handle server shutdown
 process.on('SIGINT', () => {
-  server.close(() => {
+  app.listen(vercel_client_addr).close(() => {
     console.log('Server is shutting down')
     process.exit(0)
   })
