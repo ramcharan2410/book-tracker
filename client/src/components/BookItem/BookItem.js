@@ -18,8 +18,8 @@ const BookItem = ({
   const [updateButton, setUpdateButton] = useState('Edit Progress')
   const inputRef = useRef(null)
 
-  const localhost_server_addr = process.env.LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.VERCEL_SERVER_ADDR
+  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
+  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
 
   useEffect(() => {
     if (isEditable && inputRef.current) {
