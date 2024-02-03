@@ -19,7 +19,7 @@ const vercel_client_addr = process.env.VERCEL_CLIENT_ADDR
 
 app.use(
   cors({
-    origin: [localhost_client_addr, vercel_client_addr],
+    origin: '*',
   })
 )
 
@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' })
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 const client = new Client({
   user: postgres_sql_user,
@@ -226,13 +226,11 @@ app.delete('/users/:userName/deleteBook/:id', async (req, res) => {
 app.on('close', () => {
   client.end().then(() => console.log('Database connection closed'))
 })
-app.listen(vercel_client_addr, () => {
-  console.log(`Server is running on ${vercel_client_addr}`)
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
 })
 // Handle server shutdown
 process.on('SIGINT', () => {
-  app.listen(vercel_client_addr).close(() => {
-    console.log('Server is shutting down')
-    process.exit(0)
-  })
+  console.log('Server is shutting down')
+  process.exit(0)
 })

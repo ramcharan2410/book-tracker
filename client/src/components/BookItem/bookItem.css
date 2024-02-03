@@ -48,6 +48,7 @@ input{
     margin: 2px;
     font: inherit;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 .update-progress:hover {
     background-color: blue;
