@@ -5,13 +5,18 @@
 1. [Brief Description](#brief-description)
 2. [Deployment](#deployment)
 3. [Languages Used](#languages-used)
-4. [Dependencies and Libraries Used](#dependencies-and-libraries-used)
-5. [Documentation](#documentation)
-6. [Features](#features)
-7. [Details](#details)
-8. [Feedback](#feedback)
+4. [Documentation](#documentation)
+5. [Features](#features)
+6. [Details](#details)
+7. [Feedback](#feedback)
 
 ## Brief Description
+
+The "book-tracker" project is a React.js-based application designed for organizing and managing reading habits.
+
+Users can add books to their library, categorize them by reading status (finished reading, currently reading, plan to read), and utilize features like progress editing and book deletion.
+
+The application facilitates efficient tracking of reading progress and overall book management.
 
 ## Deployment
 
@@ -53,8 +58,6 @@ To deploy this project, proceed with the following steps:
 
 - SQL - for managing databases in the project
 
-## Dependencies and Libraries Used
-
 ## Documentation
 
 Refer to the below given respective documentations for the languages used to build this project.
@@ -71,24 +74,6 @@ Refer to the below given respective documentations for the languages used to bui
 - Users can record and track their progress for each book they are reading.
 - Comprehensive book details management, allowing users to store information about the books in their reading list. This includes metadata like title, author, genre, and more.
 - Backend database integration to securely store user account information, book details, and progress data. This ensures that user data is persistent and can be accessed across sessions.
-
-## Screenshots
-
-Here are few screenshots of this project:
-
-### Home Page
-
-### New Book Form
-
-### Book Details
-
-## Demos
-
-### Adding a new book to the Library
-
-### Updating book Progress
-
-### Deleting book from Library
 
 ## Details
 
