@@ -15,7 +15,6 @@ const postgres_sql_user = process.env.POSTGRES_SQL_USER
 const postgres_sql_host = process.env.POSTGRES_SQL_HOST
 const postgres_sql_password = process.env.POSTGRES_SQL_PASSWORD
 const localhost_client_addr = process.env.LOCALHOST_CLIENT_ADDR
-const vercel_client_addr = process.env.VERCEL_CLIENT_ADDR
 
 app.use(
   cors({
