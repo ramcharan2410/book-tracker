@@ -16,8 +16,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     status: 'Select a status',
     pagesRead: null,
   })
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
   const onSubmit = async (newBook) => {
     const bookItem = {
       id: uuidv4(),

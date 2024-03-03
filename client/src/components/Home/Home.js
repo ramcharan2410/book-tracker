@@ -9,8 +9,7 @@ import './home.css'
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
   useEffect(() => {
     const fetchBooks = async () => {
       try {
