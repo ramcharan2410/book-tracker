@@ -16,7 +16,7 @@ const postgres_sql_host = process.env.POSTGRES_SQL_HOST
 const postgres_sql_password = process.env.POSTGRES_SQL_PASSWORD
 
 const corsConfig = {
-  origin: '',
+  origin: ['https://book-tracker-frontend.vercel.app', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }
@@ -42,9 +42,9 @@ app.get('/', (req, res) => {
   res.json('Hello')
 })
 // Connect to the database when the server starts
-client.connect().then(() => {
-  console.log('Connected to the database')
-})
+// client.connect().then(() => {
+//   console.log('Connected to the database')
+// })
 
 // Middleware to make the client instance available to the request handlers
 app.use((req, res, next) => {
