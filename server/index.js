@@ -15,15 +15,13 @@ const postgres_sql_user = process.env.POSTGRES_SQL_USER
 const postgres_sql_host = process.env.POSTGRES_SQL_HOST
 const postgres_sql_password = process.env.POSTGRES_SQL_PASSWORD
 
-const corsOrigins = [
-  'https://book-tracker-frontend.vercel.app/',
-  'http://localhost:3000/',
-]
-app.use(
-  cors({
-    origin: corsOrigins,
-  })
-)
+const corsConfig = {
+  origin: '',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}
+app.use(cors(corsConfig))
+app.options('', cors(corsConfig))
 
 app.use((err, req, res, next) => {
   console.error('Error:', err.message)
