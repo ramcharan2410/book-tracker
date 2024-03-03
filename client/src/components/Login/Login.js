@@ -35,12 +35,10 @@ const Login = (props) => {
         navigate(`/users/${userName}`)
       } else if (data.message === 'Login failed: Invalid credentials') {
         setIsAuthenticated(false)
-        setUserNotFound(false)
         setInvalidPassword(true)
       } else if (data.message === 'Login failed: User not found') {
         setIsAuthenticated(false)
         setUserNotFound(true)
-        setInvalidPassword(false)
         setWrongUserName(userName)
       }
     } catch (error) {

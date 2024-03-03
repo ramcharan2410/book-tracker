@@ -124,7 +124,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         onSubmit={(e) => handleSubmit(e)}
         className="new-book-form"
         style={{ display: formDisplay ? 'block' : 'none' }}
-        noValidate
+        noValidate // should be resolved as soon as possible
       >
         <div className="new-book-details">
           <label htmlFor="name">Name of the Book: </label>

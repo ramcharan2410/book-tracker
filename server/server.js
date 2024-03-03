@@ -1,10 +1,10 @@
+require('dotenv').config()
+
 const express = require('express')
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const morgan = require('morgan')
 const { Client } = require('pg')
-
-require('dotenv').config()
 
 const app = express()
 
@@ -18,7 +18,7 @@ const localhost_client_addr = process.env.LOCALHOST_CLIENT_ADDR
 
 app.use(
   cors({
-    origin: '*',
+    origin: '*', // do I also need to change the CORS for production/deployment?
   })
 )
 

@@ -28,7 +28,6 @@ body {
     font-size: 2rem;
     font-weight: bolder;
     position: fixed;
-    margin-left: 32px;
     top: 7px;
 }
 .title:hover{
@@ -36,7 +35,6 @@ body {
 }
 .signup-instead{
     font-size: 1.1rem;
-    margin-right: 30px;
     display:flex;
     align-items: center;
 }
@@ -98,4 +96,13 @@ input[type="password"] {
     position: fixed;
     bottom: 0;
     left: 45%;
+}
+@media screen and (max-width:666px) {
+    .login-navbar{
+        flex-wrap: wrap;
+    }
+    .signup-instead{
+        width: 100%;
+        margin-left: 20%;
+    }
 }

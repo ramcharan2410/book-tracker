@@ -28,7 +28,6 @@ body {
     font-size: 2rem;
     font-weight: bolder;
     position: fixed;
-    margin-left: 32px;
     top: 7px;
 }
 .title:hover {
@@ -36,7 +35,6 @@ body {
 }
 .login-instead {
     font-size: 1.1rem;
-    margin-right: 30px;
     display: flex;
     align-items: center;
 }
@@ -96,4 +94,44 @@ input[type="password"] {
     position: fixed;
     bottom: 0;
     left: 45%;
+}
+@media screen and (max-width:666px) {
+    .signup-navbar {
+        flex-wrap: wrap;
+    }
+
+    .login-instead {
+        width: 100%;
+        margin-left: 20%;
+    }
+}
+@media screen and (max-width: 924px) {
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 70%;
+    }
+    input[type="text"]{
+        margin-left:35%;
+    }
+    input[type="email"]::placeholder {
+        text-align: center;
+    }
+    input[type="email"]{
+        margin-left:15%;
+    }
+    input[type="password"]{
+        margin-left:35%;
+    }
+    button{
+        display: block;
+        margin: 0 auto;
+    }
 }
