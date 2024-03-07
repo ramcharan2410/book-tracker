@@ -12,7 +12,7 @@ const Signup = (props) => {
   const [emailError, setEmailError] = useState('')
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
   const navigate = useNavigate()
-  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
+  const renderServerAddr = 'https://book-tracker-backend.onrender.com'
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -28,7 +28,7 @@ const Signup = (props) => {
       return
     }
     try {
-      const response = await fetch(`${vercel_server_addr}/signup`, {
+      const response = await fetch(`${renderServerAddr}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

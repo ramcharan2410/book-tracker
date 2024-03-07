@@ -16,7 +16,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     status: 'Select a status',
     pagesRead: null,
   })
-  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
+  const renderServerAddr = 'https://book-tracker-backend.onrender.com'
   const onSubmit = async (newBook) => {
     const bookItem = {
       id: uuidv4(),
@@ -24,7 +24,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     }
     try {
       const response = await fetch(
-        `${vercel_server_addr}/users/${userName}/addBook`,
+        `${renderServerAddr}/users/${userName}/addBook`,
         {
           method: 'POST',
           headers: {
