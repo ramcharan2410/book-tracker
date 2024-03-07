@@ -10,7 +10,7 @@ const Login = (props) => {
   const [wrongUserName, setWrongUserName] = useState('')
   const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
-  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
+  const renderServerAddr = 'https://book-tracker-backend.onrender.com'
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -18,7 +18,7 @@ const Login = (props) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`${vercel_server_addr}/login`, {
+      const response = await fetch(`${renderServerAddr}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

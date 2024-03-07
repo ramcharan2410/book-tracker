@@ -9,12 +9,12 @@ import './home.css'
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
-  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
+  const renderServerAddr = 'https://book-tracker-backend.onrender.com'
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `${vercel_server_addr}/user/${userName}/books`
+          `${renderServerAddr}/user/${userName}/books`
         )
         const data = await response.json()
         if (data) {

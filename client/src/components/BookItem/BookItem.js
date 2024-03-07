@@ -18,7 +18,7 @@ const BookItem = ({
   const [updateButton, setUpdateButton] = useState('Edit Progress')
   const inputRef = useRef(null)
 
-  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
+  const renderServerAddr = 'https://book-tracker-backend.onrender.com'
 
   useEffect(() => {
     if (isEditable && inputRef.current) {
@@ -74,7 +74,7 @@ const BookItem = ({
 
       try {
         const response = await fetch(
-          `${vercel_server_addr}/users/${userName}/updateBook/${book.id}`,
+          `${renderServerAddr}/users/${userName}/updateBook/${book.id}`,
           {
             method: 'PUT',
             headers: {
