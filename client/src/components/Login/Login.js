@@ -10,8 +10,7 @@ const Login = (props) => {
   const [wrongUserName, setWrongUserName] = useState('')
   const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const vercel_server_addr = 'https://book-tracker-backend.vercel.app'
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()

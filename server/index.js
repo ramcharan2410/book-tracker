@@ -14,11 +14,14 @@ app.use(express.json())
 const postgres_sql_user = process.env.POSTGRES_SQL_USER
 const postgres_sql_host = process.env.POSTGRES_SQL_HOST
 const postgres_sql_password = process.env.POSTGRES_SQL_PASSWORD
-const localhost_client_addr = process.env.LOCALHOST_CLIENT_ADDR
 
+const corsOrigins = [
+  'https://book-tracker-frontend.vercel.app/',
+  'http://localhost:3000/',
+]
 app.use(
   cors({
-    origin: '*', // do I also need to change the CORS for production/deployment?
+    origin: corsOrigins,
   })
 )
 
