@@ -41,6 +41,7 @@ const client = new Client({
 app.get('/', (req, res) => {
   res.json('Hello')
 })
+// THIS ONE FINALLY WORKED! (By removing this code)
 // Connect to the database when the server starts
 // client.connect().then(() => {
 //   console.log('Connected to the database')
