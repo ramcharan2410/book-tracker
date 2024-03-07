@@ -44,9 +44,9 @@ app.get('/', (req, res) => {
   res.json('Hello')
 })
 // Connect to the database when the server starts
-client.connect().then(() => {
-  console.log('Connected to the database')
-})
+// client.connect().then(() => {
+//   console.log('Connected to the database')
+// })
 
 // Middleware to make the client instance available to the request handlers
 app.use((req, res, next) => {
