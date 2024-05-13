@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import './newBookForm.css'
 
 const NewBookForm = ({ userName, setBooks }) => {
   const [addButton, setAddButton] = useState('Add New Book')
@@ -16,8 +15,8 @@ const NewBookForm = ({ userName, setBooks }) => {
     status: 'Select a status',
     pagesRead: null,
   })
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const localhost_server_addr = 'http://localhost:3001'
+  const vercel_server_addr = 'https://book-tracker-backend.onrender.com'
   const onSubmit = async (newBook) => {
     const bookItem = {
       id: uuidv4(),
@@ -25,7 +24,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     }
     try {
       const response = await fetch(
-        `${vercel_server_addr}/users/${userName}/addBook`,
+        `${localhost_server_addr}/users/${userName}/addBook`,
         {
           method: 'POST',
           headers: {
@@ -111,7 +110,7 @@ const NewBookForm = ({ userName, setBooks }) => {
     })
   }
   return (
-    <>
+    <div className='new-book-form-container'>
       <button
         className="add-new-book"
         onClick={() => {
@@ -241,7 +240,7 @@ const NewBookForm = ({ userName, setBooks }) => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   )
 }
 

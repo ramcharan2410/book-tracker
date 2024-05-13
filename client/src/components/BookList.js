@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import BookItem from '../BookItem/BookItem.js'
+import BookItem from './BookItem.js'
 import React from 'react'
-import './bookList.css'
 
 const BookList = ({ userName, books, setBooks }) => {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -39,7 +38,7 @@ const BookList = ({ userName, books, setBooks }) => {
   const leftColumnBooks = filteredBooks.slice(0, mid)
   const rightColumnBooks = filteredBooks.slice(mid)
   return (
-    <>
+    <div className="book-list-container">
       <div className="status-bar">
         <button
           onClick={() => handleCategoryClick('All')}
@@ -67,7 +66,7 @@ const BookList = ({ userName, books, setBooks }) => {
         </button>
       </div>
       {filteredBooks.length > 0 ? (
-        <div className="book-list-container">
+        <div className="book-list">
           <div className="book-list-column">
             <ul className="list">
               {leftColumnBooks.map((book) => {
@@ -102,9 +101,9 @@ const BookList = ({ userName, books, setBooks }) => {
           </div>
         </div>
       ) : (
-        <p>No Books in this Category</p>
+        <p className="no-books">No Books in this Category</p>
       )}
-    </>
+    </div>
   )
 }
 

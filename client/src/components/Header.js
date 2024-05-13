@@ -1,20 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
-import './header.css'
 
 const Header = ({ userName, email }) => {
   const navigate = useNavigate()
-  const reloadPage = () => {
-    window.location.reload()
-  }
   const handleLogOut = (e) => {
     navigate('/login')
   }
   return (
     <div className="home-navbar">
-      <div className="title" onClick={reloadPage}>
-        <LocalLibraryRoundedIcon fontSize="large" />
+      <div className="header-title">
+        {/* <LocalLibraryRoundedIcon fontSize="large" /> */}
         Book Tracker
       </div>
       <div className="userName" title={email}>

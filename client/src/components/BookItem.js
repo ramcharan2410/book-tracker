@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import LinearProgress from '@mui/material/LinearProgress'
-import './bookItem.css'
 
 const BookItem = ({
   userName,
@@ -18,8 +17,8 @@ const BookItem = ({
   const [updateButton, setUpdateButton] = useState('Edit Progress')
   const inputRef = useRef(null)
 
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const localhost_server_addr = 'http://localhost:3001'
+  const vercel_server_addr = 'https://book-tracker-backend.onrender.com'
 
   useEffect(() => {
     if (isEditable && inputRef.current) {
@@ -75,7 +74,7 @@ const BookItem = ({
 
       try {
         const response = await fetch(
-          `${vercel_server_addr}/users/${userName}/updateBook/${book.id}`,
+          `${localhost_server_addr}/users/${userName}/updateBook/${book.id}`,
           {
             method: 'PUT',
             headers: {

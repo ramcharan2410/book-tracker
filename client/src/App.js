@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
-import Home from './components/Home/Home.js'
-import Signup from './components/Signup/Signup.js'
-import Login from './components/Login/Login.js'
+import Home from './components/Home.js'
+import Signup from './components/Signup.js'
+import Login from './components/Login.js'
 import ProtectedRoutes from './ProtectedRoutes'
+import './App.css'
 const App = () => {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -12,7 +12,6 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Analytics />
         <Routes>
           <Route
             path="/signup"

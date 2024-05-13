@@ -1,0 +1,646 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+/************ Default Css ************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+p,
+a,
+li,
+button,
+ul {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+/************ Default Css ************/
+/* App.js */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+/* Login.js */
+.login {
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-navbar {
+    background-color: black;
+    color: #eee;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    position: relative;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.login-title:hover {
+    cursor: pointer;
+}
+
+.signup-instead {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.signup-instead a {
+    text-decoration: none;
+    margin-left: 0.2em;
+}
+
+.signup-instead a:visited {
+    color: blue;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px solid black;
+    width: 50%;
+    margin: 5em auto 0;
+    padding: 1em;
+    font-size: 1.2rem;
+    border-radius: 30px;
+}
+
+.login-form input {
+    min-width: 40%;
+    font-size: 1.2rem;
+    font-family: inherit;
+    padding: 0.3em;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.login-form input::placeholder {
+    font-size: 0.9em;
+}
+
+.login-button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 0.2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: green;
+    color: #eee;
+}
+
+.errorLabel,
+.user-not-found,
+.invalid-password {
+    color: red;
+}
+
+.login-footer {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
+}
+/* Do something for Galaxy Fold screen! (For placeholder) */
+@media screen and (max-width: 348px) {
+    .login-form input::placeholder{
+        font-size: .8em;
+    }
+}
+@media screen and (max-width: 416px) {
+    .login-form input{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-form {
+        width: 70%;
+    }
+}
+@media screen and (max-width:818px){
+    .login-form input{
+        display: block;
+        margin-top: .2em;
+    }
+}
+
+/* Signup.js */
+.signup{
+    font-size: 16px;
+    width: 100%;
+}
+.signup-navbar {
+    background-color: black;
+    color: #eee;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+    position: relative;
+}
+
+.signup-title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.signup-title:hover {
+    cursor: pointer;
+}
+
+.login-instead {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.login-instead a {
+    text-decoration: none;
+    margin-left: .2em;
+}
+
+.login-instead a:visited {
+    color: blue;
+}
+
+.signup-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px solid black;
+    width: 50%;
+    margin: 5em auto 0;
+    padding: 1em;
+    font-size: 1.2rem;
+    border-radius: 30px;
+}
+
+.signup-form input {
+    min-width: 40%;
+    font-size: 1.2rem;
+    font-family: inherit;
+    padding: .3em;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: .4em;
+    margin-bottom: .4em;
+}
+
+.signup-form input[type="email"] {
+    min-width: 50%;
+}
+
+.signup-form input::placeholder {
+    font-size: .9em;
+}
+.signup-button {
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: .2em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: green;
+    color: #eee;
+}
+
+.errorLabel,
+.user-exists,
+.email-exists {
+    color: red;
+}
+
+.signup-footer {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1em;
+}
+/* Do something for Galaxy Fold screen! (For placeholder) */
+@media screen and (max-width: 348px) {
+    .signup-form input::placeholder {
+        font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 416px) {
+    .signup-form input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup-navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .signup-form {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:818px) {
+    .signup-form input {
+        display: block;
+        margin-top: .2em;
+    }
+}
+/* Header */
+.home-navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: .3em;
+    padding: .5em;
+    position: sticky;
+    top: 0;
+}
+
+.header-title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.header-title:hover {
+    cursor: pointer;
+}
+
+.userName {
+    font-size: 1.3rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+.logout {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .3em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: red;
+    color: #eee;
+}
+
+@media screen and (max-width: 743px) {
+    .home-navbar {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-title,
+    .logout {
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+
+    .userName {
+        width: fit-content;
+    }
+}
+
+/* NewBookForm.js */
+.new-book-form-container{
+    width: 50%;
+    margin: 0 auto;
+}
+.add-new-book {
+    font-family: inherit;
+    font-size: 1.3rem;
+    width: 100%;
+    padding: .2em;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-new-book:hover {
+    background-color: aqua;
+}
+
+.new-book-form {
+    font-family: inherit;
+    font-size: 1.1rem;
+    background-color: #eee;
+    width: 100%;
+    border: 10px solid purple;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: .4em;
+    text-align: left;
+}
+
+.new-book-form input {
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: .2em;
+    border-radius: 10px;
+    margin-left: .2em;
+    margin-bottom: .2em;
+}
+
+.new-book-form input[id="name"] {
+    width: 50%;
+}
+
+.new-book-form input[type="number"] {
+    width: 12%;
+}
+
+.new-book-form select {
+    font: inherit;
+    font-size: 1.1rem;
+    margin-bottom: .2em;
+    border-radius: 10px;
+}
+
+.book-already-present {
+    color: red;
+}
+
+.add-delete {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add,
+.delete {
+    font-family: inherit;
+    font-size: 1.1rem;
+    width: 50%;
+    padding: .2em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add {
+    border-bottom-left-radius: 15px;
+}
+
+.delete {
+    border-bottom-right-radius: 15px;
+}
+
+.add:hover {
+    background-color: green;
+    color: #eee;
+}
+
+.delete:hover {
+    background-color: red;
+    color: #eee;
+}
+
+/* BookList.js */
+.book-list-container{
+    margin: 0 auto;
+    width: 70%;
+    border: 3px solid black;
+    border-radius: 15px;
+    min-height: 90vh;
+    background-color: rgb(255, 255, 255, 0.6)
+}
+.status-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.status-bar button {
+    padding: .2em;
+    margin: .3em;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.status-bar button:hover {
+    background-color: aqua;
+}
+
+.active {
+    background-color: aqua;
+}
+
+.book-list {
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-list-column {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.no-books{
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+}
+@media screen and (max-width:743px) {
+    .book-list-column {
+        width: 100%;
+        /* Set column width to 100% */
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allow books to wrap to the next line */
+    }
+
+    .list li {
+        width: 100%;
+        /* Set each book item to take full width */
+    }
+}
+
+@media screen and (max-width: 497px) {
+    .status-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .status-bar button {
+        width: 60%;
+        /* Set each button to 48% width to fit two buttons on each row */
+        margin-bottom: 6px;
+        /* Add some vertical space between buttons */
+    }
+}
+
+@media screen and (min-width:497px) and (max-width: 743px) {
+    .status-bar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        /* Distribute buttons evenly */
+    }
+
+    .status-bar button {
+        width: 48%;
+        /* Set each button to 48% width to fit two buttons on each row */
+        margin-bottom: 6px;
+        /* Add some vertical space between buttons */
+    }
+}
+
+/* BookItem.js */
+.list-item {
+    list-style-type: none;
+    width: 98%;
+    margin-bottom: .4em;
+    border-radius: 15px;
+}
+
+.view-book {
+    width: 100%;
+    font-style: inherit;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    padding: .3em;
+}
+
+.view-book:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+.book-info{
+    font-family: inherit;
+    font-size: 1.05rem;
+    padding: .2em;
+}
+.pages-read {
+    background-color: inherit;
+    font: inherit;
+    border-radius: 10px;
+    padding-left: .2em;
+    width: 3.5em;
+}
+
+.pages-read::-webkit-inner-spin-button,
+.pages-read::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    display: inline;
+}
+
+.update-delete {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-delete button {
+    border: 2px black solid;
+    border-radius: 15px;
+    padding: .2em;
+    margin: .2em;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.update-progress:hover {
+    background-color: blue;
+    border-color: blue;
+    color: #eee;
+}
+
+.set-curr-reading:hover {
+    background-color: green;
+    border-color: green;
+    color: #eee;
+}
+
+.delete-book:hover {
+    background-color: red;
+    border-color: red;
+    color: #eee;
+}
+
+/* Footer.js */
+.home-footer {
+    color: black;
+    font-style: inherit;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+}

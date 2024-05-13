@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
-import './signup.css'
 
 const Signup = (props) => {
   const { userName, setUserName, email, setEmail, setIsAuthenticated } = props
@@ -12,8 +11,8 @@ const Signup = (props) => {
   const [emailError, setEmailError] = useState('')
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/
   const navigate = useNavigate()
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const localhost_server_addr = 'http://localhost:3001'
+  const vercel_server_addr = 'https://book-tracker-backend.onrender.com'
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -29,7 +28,7 @@ const Signup = (props) => {
       return
     }
     try {
-      const response = await fetch(`${vercel_server_addr}/signup`, {
+      const response = await fetch(`${localhost_server_addr}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,10 +53,12 @@ const Signup = (props) => {
     }
   }
   return (
-    <>
+    <div className="signup">
       <div className="signup-navbar">
-        <LocalLibraryRoundedIcon fontSize="large" />
-        <div className="title">Book Tracker</div>
+        <div className="signup-title">
+          {/* <LocalLibraryRoundedIcon fontSize="large" /> */}
+          Book Tracker
+        </div>
         <p className="login-instead">
           Already have an account? <a href="/login">Login instead</a>
         </p>
@@ -110,7 +111,7 @@ const Signup = (props) => {
             value={password}
             id="signup-password"
             name="signup-password"
-            placeholder="Enter a strong password"
+            placeholder="Enter a password"
             onChange={(e) => {
               setPassword(e.target.value)
               if (e.target.value.length === 0) {
@@ -153,7 +154,7 @@ const Signup = (props) => {
         </form>
       </div>
       <div className="signup-footer">Copyright &copy; {getYear()}</div>
-    </>
+    </div>
   )
 }
 

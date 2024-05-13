@@ -1,21 +1,20 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Header from '../Header/Header.js'
-import NewBookForm from '../NewBookForm/NewBookForm.js'
-import BookList from '../BookList/BookList.js'
-import Footer from '../Footer/Footer.js'
-import './home.css'
+import Header from './Header.js'
+import NewBookForm from './NewBookForm.js'
+import BookList from './BookList.js'
+import Footer from './Footer.js'
 
 const Home = ({ userName, email }) => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const localhost_server_addr = 'http://localhost:3001'
+  const vercel_server_addr = 'https://book-tracker-backend.onrender.com'
   useEffect(() => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          `${vercel_server_addr}/user/${userName}/books`
+          `${localhost_server_addr}/user/${userName}/books`
         )
         const data = await response.json()
         if (data) {
