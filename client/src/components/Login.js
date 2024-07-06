@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
+import { FaBookReader } from "react-icons/fa";
 
 const Login = (props) => {
   const { userName, setUserName, setEmail, setIsAuthenticated } = props
@@ -48,7 +48,7 @@ const Login = (props) => {
     <div className='login'>
       <div className="login-navbar">
         <div className="login-title">
-          {/* <LocalLibraryRoundedIcon fontSize="large" /> */}
+          <FaBookReader color='white' />
           Book Tracker
         </div>
         <p className="signup-instead">
@@ -94,7 +94,7 @@ const Login = (props) => {
             className="user-not-found"
             style={{ display: userNotFound ? 'block' : 'none' }}
           >
-            User with userName {wrongUserName} not found.
+            User with username {wrongUserName} not found.
           </p>
           <button type="submit" className="login-button">
             Confirm Login

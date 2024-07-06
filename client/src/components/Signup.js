@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
+import { FaBookReader } from "react-icons/fa";
 
 const Signup = (props) => {
   const { userName, setUserName, email, setEmail, setIsAuthenticated } = props
@@ -56,7 +56,7 @@ const Signup = (props) => {
     <div className="signup">
       <div className="signup-navbar">
         <div className="signup-title">
-          {/* <LocalLibraryRoundedIcon fontSize="large" /> */}
+          <FaBookReader color='white' />
           Book Tracker
         </div>
         <p className="login-instead">

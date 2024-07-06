@@ -111,14 +111,6 @@ const NewBookForm = ({ userName, setBooks }) => {
   }
   return (
     <div className='new-book-form-container'>
-      <button
-        className="add-new-book"
-        onClick={() => {
-          handleFormChange()
-        }}
-      >
-        {addButton}
-      </button>
       <form
         onSubmit={(e) => handleSubmit(e)}
         className="new-book-form"

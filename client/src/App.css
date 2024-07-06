@@ -50,12 +50,15 @@ body {
     background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20160523135836-books-sale-reading-store.jpeg");
     background-size: cover;
     background-attachment: fixed;
+    height: 100vh;
     min-height: 100vh;
 }
 /* Login.js */
 .login {
     font-size: 16px;
     width: 100%;
+    height: 100vh;
+    position: absolute;
 }
 
 .login-navbar {
@@ -111,6 +114,7 @@ body {
     border-radius: 10px;
     margin-left: 0.4em;
     margin-bottom: 0.4em;
+    border: 2px solid black;
 }
 
 .login-form input::placeholder {
@@ -123,6 +127,7 @@ body {
     padding: 0.2em;
     border-radius: 10px;
     cursor: pointer;
+    border: 2px solid black;
 }
 
 .login-button:hover {
@@ -137,10 +142,11 @@ body {
 }
 
 .login-footer {
+    position: relative;
+    bottom: 0;
     color: black;
     font-weight: bold;
     text-align: center;
-    margin-top: 1em;
 }
 /* Do something for Galaxy Fold screen! (For placeholder) */
 @media screen and (max-width: 348px) {
@@ -175,6 +181,8 @@ body {
 .signup{
     font-size: 16px;
     width: 100%;
+    position: absolute;
+    height: 100vh;
 }
 .signup-navbar {
     background-color: black;
@@ -229,6 +237,7 @@ body {
     border-radius: 10px;
     margin-left: .4em;
     margin-bottom: .4em;
+    border: 2px solid black;
 }
 
 .signup-form input[type="email"] {
@@ -244,6 +253,7 @@ body {
     padding: .2em;
     border-radius: 10px;
     cursor: pointer;
+    border: 2px solid black;
 }
 
 .signup-button:hover {
@@ -258,10 +268,11 @@ body {
 }
 
 .signup-footer {
+    position: relative;
+    bottom: 0;
     color: black;
     font-weight: bold;
     text-align: center;
-    margin-top: 1em;
 }
 /* Do something for Galaxy Fold screen! (For placeholder) */
 @media screen and (max-width: 348px) {
@@ -298,7 +309,7 @@ body {
     display: flex;
     justify-content: space-around;
     background-color: rgba(255, 255, 255, 0.8);
-    margin-bottom: .3em;
+    margin-bottom: 1em;
     padding: .5em;
     position: sticky;
     top: 0;
@@ -313,24 +324,26 @@ body {
     cursor: pointer;
 }
 
-.userName {
-    font-size: 1.3rem;
-    font-weight: bolder;
+.add-new-book {
     display: flex;
     align-items: center;
-}
-
-.logout {
     font-family: inherit;
-    font-size: 1rem;
-    padding: .3em;
-    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: .2em;
+    border-radius: 20px;
+    border: 2px solid black;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.logout:hover {
-    background-color: red;
-    color: #eee;
+.add-new-book:hover {
+    background-color: aqua;
+}
+
+.userName-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 743px) {
@@ -351,27 +364,113 @@ body {
     }
 }
 
+/* UserProfileModal.js */
+.profile-modal-outside-container{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.profile-modal{
+    background-color: #eee;
+    color: black;
+    width: 40%;
+    height: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 2px solid black;
+}
+.profile-modal-header {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.profile-modal-close-icon{
+    cursor: pointer;
+    border-radius: 8px;
+    padding: .2em;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -.3em;
+    margin-right: -.3em;
+}
+.profile-modal-close-icon:hover {
+  background-color: aqua;
+}
+.profile-modal-form{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+.profile-modal-form span{
+    font-weight: bold;
+}
+.profile-modal-form input{
+    font-family: inherit;
+    padding: .3em;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.profile-modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: .5em;
+}
+.profile-modal-buttons button{
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .3em;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+.save-changes:hover{
+    background-color: green;
+    color: #eee;
+}
+.cancel-changes:hover{
+    background-color: red;
+    color: #eee;
+}
+.logout {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .3em;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+}
+.logout:hover {
+    background-color: red;
+    color: #eee;
+}
+
 /* NewBookForm.js */
 .new-book-form-container{
     width: 50%;
     margin: 0 auto;
 }
-.add-new-book {
-    font-family: inherit;
-    font-size: 1.3rem;
-    width: 100%;
-    padding: .2em;
-    margin-top: .2em;
-    margin-bottom: .2em;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.add-new-book:hover {
-    background-color: aqua;
-}
-
 .new-book-form {
     font-family: inherit;
     font-size: 1.1rem;
@@ -383,40 +482,34 @@ body {
     padding: .4em;
     text-align: left;
 }
-
 .new-book-form input {
     font-size: 1.1rem;
     font-family: inherit;
     padding: .2em;
     border-radius: 10px;
+    border: 2px solid black;
     margin-left: .2em;
     margin-bottom: .2em;
 }
-
 .new-book-form input[id="name"] {
     width: 50%;
 }
-
 .new-book-form input[type="number"] {
     width: 12%;
 }
-
 .new-book-form select {
     font: inherit;
     font-size: 1.1rem;
     margin-bottom: .2em;
     border-radius: 10px;
 }
-
 .book-already-present {
     color: red;
 }
-
 .add-delete {
     display: flex;
     justify-content: space-between;
 }
-
 .add,
 .delete {
     font-family: inherit;
@@ -427,20 +520,16 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
-
 .add {
     border-bottom-left-radius: 15px;
 }
-
 .delete {
     border-bottom-right-radius: 15px;
 }
-
 .add:hover {
     background-color: green;
     color: #eee;
 }
-
 .delete:hover {
     background-color: red;
     color: #eee;
@@ -449,7 +538,7 @@ body {
 /* BookList.js */
 .book-list-container{
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     border: 3px solid black;
     border-radius: 15px;
     min-height: 90vh;
@@ -459,6 +548,7 @@ body {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    margin-bottom: 1em;
 }
 
 .status-bar button {
@@ -467,6 +557,7 @@ body {
     font-family: inherit;
     font-size: 1rem;
     border-radius: 20px;
+    border: 2px solid black;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
