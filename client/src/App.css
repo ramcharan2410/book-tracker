@@ -466,71 +466,104 @@ body {
     color: #eee;
 }
 
-/* NewBookForm.js */
-.new-book-form-container{
-    width: 50%;
-    margin: 0 auto;
-}
-.new-book-form {
-    font-family: inherit;
-    font-size: 1.1rem;
-    background-color: #eee;
+/* NewBookFormModal.js */
+.new-book-form-modal-outside-container{
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
-    border: 10px solid purple;
-    border-radius: 15px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.new-book-form-modal {
+    background-color: #eee;
+    color: black;
+    width: 50%;
+    height: 60%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 2px solid black;
+}
+.new-book-form-modal-header {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.new-book-form-modal-close-icon{
+    cursor: pointer;
+    border-radius: 8px;
+    padding: .2em;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -.3em;
+    margin-right: -.3em;
+}
+.new-book-form-modal-close-icon:hover {
+  background-color: aqua;
+}
+.new-book-form{
+    width: 90%;
+    height: 60%;
     margin: 0 auto;
-    padding: .4em;
-    text-align: left;
+    margin-top: 3em;
+}
+.new-book-form label{
+    font-weight: bold;
 }
 .new-book-form input {
-    font-size: 1.1rem;
     font-family: inherit;
     padding: .2em;
     border-radius: 10px;
     border: 2px solid black;
-    margin-left: .2em;
-    margin-bottom: .2em;
+    margin-left: .3em;
+    margin-bottom: .3em;
 }
 .new-book-form input[id="name"] {
-    width: 50%;
+    width: 60%;
 }
 .new-book-form input[type="number"] {
-    width: 12%;
+    width: 15%;
 }
 .new-book-form select {
     font: inherit;
-    font-size: 1.1rem;
     margin-bottom: .2em;
     border-radius: 10px;
 }
 .book-already-present {
     color: red;
 }
-.add-delete {
-    display: flex;
-    justify-content: space-between;
+.new-book-form-modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: .5em;
 }
-.add,
-.delete {
+.new-book-form-modal-buttons button{
     font-family: inherit;
-    font-size: 1.1rem;
-    width: 50%;
-    padding: .2em;
-    border: none;
+    font-size: 1rem;
+    padding: .3em;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid black;
 }
-.add {
-    border-bottom-left-radius: 15px;
-}
-.delete {
-    border-bottom-right-radius: 15px;
-}
-.add:hover {
+.add:hover{
     background-color: green;
     color: #eee;
 }
-.delete:hover {
+.cancel:hover{
     background-color: red;
     color: #eee;
 }
@@ -550,7 +583,6 @@ body {
     width: 100%;
     margin-bottom: 1em;
 }
-
 .status-bar button {
     padding: .2em;
     margin: .3em;
@@ -561,30 +593,19 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
-
 .status-bar button:hover {
     background-color: aqua;
 }
-
 .active {
     background-color: aqua;
 }
-
 .book-list {
     font-size: 1rem;
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
 }
-
-.book-list-column {
-    width: 50%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-}
-
 .list {
     width: 100%;
     display: flex;
@@ -648,29 +669,34 @@ body {
 /* BookItem.js */
 .list-item {
     list-style-type: none;
-    width: 98%;
+    width: 100%;
     margin-bottom: .4em;
-    border-radius: 15px;
+    border-radius: 10px;
+    border: 2px solid black;
 }
-
 .view-book {
     width: 100%;
-    font-style: inherit;
-    font-size: 1.1rem;
     font-style: italic;
     font-weight: bold;
     text-align: center;
     padding: .3em;
 }
-
 .view-book:hover {
     cursor: pointer;
     transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+.book-info-div{
+    padding: .2em;
 }
 .book-info{
-    font-family: inherit;
-    font-size: 1.05rem;
-    padding: .2em;
+    padding: 1em;
+}
+.book-info span{
+    font-weight: bold;
+}
+.book-info input{
+    border: 2px solid black;
 }
 .pages-read {
     background-color: inherit;
@@ -679,22 +705,15 @@ body {
     padding-left: .2em;
     width: 3.5em;
 }
-
 .pages-read::-webkit-inner-spin-button,
 .pages-read::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
-input {
-    display: inline;
-}
-
 .update-delete {
     display: flex;
     justify-content: space-evenly;
 }
-
 .update-delete button {
     border: 2px black solid;
     border-radius: 15px;
@@ -705,19 +724,16 @@ input {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
-
 .update-progress:hover {
     background-color: blue;
     border-color: blue;
     color: #eee;
 }
-
 .set-curr-reading:hover {
     background-color: green;
     border-color: green;
     color: #eee;
 }
-
 .delete-book:hover {
     background-color: red;
     border-color: red;

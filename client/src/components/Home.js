@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import ReactLoading from 'react-loading';
 import Header from './Header.js'
-import NewBookForm from './NewBookForm.js'
 import BookList from './BookList.js'
 import Footer from './Footer.js'
 
@@ -27,15 +27,21 @@ const Home = ({ userName, email }) => {
       }
     }
     fetchBooks()
+    // add some time for loading books
   }, [])
 
   return (
     <>
-      <Header userName={userName} email={email} />
+      <Header
+        userName={userName}
+        email={email}
+        setBooks={setBooks}
+      />
       <div className="container">
-        <NewBookForm userName={userName} setBooks={setBooks} />
         {loading ? (
-          <p>Loading...</p>
+          <div className='loading'>
+            <ReactLoading type='bars' color='black' />
+          </div>
         ) : (
           <BookList userName={userName} books={books} setBooks={setBooks} />
         )}

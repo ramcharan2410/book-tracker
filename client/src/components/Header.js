@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaBookReader, FaUserCircle } from "react-icons/fa";
 import { BiSolidBookAdd } from "react-icons/bi";
-import NewBookForm from './NewBookForm';
+import NewBookFormModal from './NewBookFormModal';
 import UserProfileModal from './UserProfileModal';
 
-const Header = ({ userName, email }) => {
+const Header = ({ userName, email, setBooks }) => {
   const navigate = useNavigate()
-  const [addNewBook, setAddNewBook] = useState(false)
+  const [showNewBookForm, setShowNewBookForm] = useState(false)
   const [showProfile, setShowProfile] = useState(false)
   const handleUserIconClick = () => {
     setShowProfile(!showProfile)
@@ -22,12 +22,12 @@ const Header = ({ userName, email }) => {
           <FaBookReader color='black' />
           Book Tracker
         </div>
-        <div className="add-new-book" onClick={() => setAddNewBook(true)}>
+        <div className="add-new-book" onClick={() => setShowNewBookForm(true)}>
           <BiSolidBookAdd color='black' />
           New Book
         </div>
         <div className="userName-icon" title={userName} onClick={handleUserIconClick}>
-          <FaUserCircle color='black' size={30} />
+          <FaUserCircle color='black' size={34} />
         </div>
         <button className="logout" onClick={(e) => handleLogOut(e)}>
           Logout
@@ -41,8 +41,12 @@ const Header = ({ userName, email }) => {
             setShowProfile={setShowProfile}
           />
         )}
-      {addNewBook && (
-        <NewBookForm />
+      {showNewBookForm && (
+        <NewBookFormModal
+          userName={userName}
+          setBooks={setBooks}
+          setShowNewBookForm={setShowNewBookForm}
+        />
       )}
     </>
   )

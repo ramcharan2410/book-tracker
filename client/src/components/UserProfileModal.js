@@ -11,7 +11,7 @@ const UserProfileModal = ({ userName, email, setShowProfile }) => {
         if (passwordError || confirmPasswordError) {
             return;
         }
-
+        // TODO: update password
     }
 
     return (
@@ -54,7 +54,7 @@ const UserProfileModal = ({ userName, email, setShowProfile }) => {
                         <span>Confirm Password: </span>
                         <input type="password" value={confirmPassword} onChange={(e) => {
                             setConfirmPassword(e.target.value);
-                            if (updatedPassword !== '' && e.target.value !== updatedPassword) {
+                            if (updatedPassword !== e.target.value) {
                                 setConfirmPasswordError('Confirm password should match New password')
                             }
                             else {

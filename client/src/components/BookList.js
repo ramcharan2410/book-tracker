@@ -34,9 +34,6 @@ const BookList = ({ userName, books, setBooks }) => {
     }
     return book.status === selectedCategory
   })
-  const mid = Math.ceil(filteredBooks.length / 2)
-  const leftColumnBooks = filteredBooks.slice(0, mid)
-  const rightColumnBooks = filteredBooks.slice(mid)
   return (
     <div className="book-list-container">
       <div className="status-bar">
@@ -67,43 +64,26 @@ const BookList = ({ userName, books, setBooks }) => {
       </div>
       {filteredBooks.length > 0 ? (
         <div className="book-list">
-          <div className="book-list-column">
-            <ul className="list">
-              {leftColumnBooks.map((book) => {
-                return (
-                  <BookItem
-                    userName={userName}
-                    book={book}
-                    books={books}
-                    setBooks={setBooks}
-                    key={book.id}
-                    handleSetCurrReading={handleSetCurrReading}
-                  />
-                )
-              })}
-            </ul>
-          </div>
-          <div className="book-list-column">
-            <ul className="list">
-              {rightColumnBooks.map((book) => {
-                return (
-                  <BookItem
-                    userName={userName}
-                    book={book}
-                    books={books}
-                    setBooks={setBooks}
-                    key={book.id}
-                    handleSetCurrReading={handleSetCurrReading}
-                  />
-                )
-              })}
-            </ul>
-          </div>
+          <ul className="list">
+            {filteredBooks.map((book) => {
+              return (
+                <BookItem
+                  userName={userName}
+                  book={book}
+                  books={books}
+                  setBooks={setBooks}
+                  key={book.id}
+                  handleSetCurrReading={handleSetCurrReading}
+                />
+              )
+            })}
+          </ul>
         </div>
       ) : (
         <p className="no-books">No Books in this Category</p>
-      )}
-    </div>
+      )
+      }
+    </div >
   )
 }
 

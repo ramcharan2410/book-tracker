@@ -34,7 +34,6 @@ const BookItem = ({
     if (e.key === 'Enter') {
       setIsEditable((current) => !current)
       setUpdateButton('Edit Progress')
-      setBookDisplay(false)
     }
   }
 
@@ -45,7 +44,6 @@ const BookItem = ({
         setBookDisplay(true)
         return 'Update Progress'
       } else {
-        setBookDisplay(false)
         return 'Edit Progress'
       }
     })
@@ -96,7 +94,6 @@ const BookItem = ({
       } catch (error) {
         console.error('Error updating book:', error)
       }
-
       setProgress(newProgress)
       setInputValue(updatedInputValue)
     } else {
@@ -110,7 +107,7 @@ const BookItem = ({
       return eachBook.id !== bookId
     })
     try {
-      const response = await fetch(`/users/${userName}/deleteBook/${book.id}`, {
+      const response = await fetch(`${localhost_server_addr}/users/${userName}/deleteBook/${book.id}`, {
         method: 'DELETE',
       })
       const data = await response.json()
@@ -129,41 +126,42 @@ const BookItem = ({
           className="list-item"
           style={{
             backgroundColor: progress === 100 ? 'green' : 'yellow',
-            borderColor: progress === 100 ? 'green' : 'yellow',
           }}
         >
           <div className="view-book" onClick={handleViewBookInfo}>
             {book.name}
           </div>
           <div
-            className="book-info"
+            className="book-info-div"
             style={{
               display: bookDisplay ? 'block' : 'none',
             }}
           >
-            Author: {book.author}
-            <br />
-            Year Published: {book.year}
-            <br />
-            Genre: {book.genre}
-            <br />
-            Pages Read:{' '}
-            {isEditable ? (
-              <input
-                className="pages-read"
-                type="number"
-                value={inputValue}
-                onChange={(e) => handleUpdateBook(e)}
-                onKeyDown={(e) => handleEnterKeyPress(e)}
-                min={0}
-                max={book.pages}
-                ref={inputRef}
-              />
-            ) : (
-              <span>{inputValue}</span>
-            )}{' '}
-            of {book.pages} ({progress}%)
-            <br />
+            <div className="book-info">
+              <span>Author: </span>{book.author}
+              <br />
+              <span>Year Published: </span>{book.year}
+              <br />
+              <span>Genre: </span>{book.genre}
+              <br />
+              <span>Pages Read: </span>
+              {isEditable ? (
+                <input
+                  className="pages-read"
+                  type="number"
+                  value={inputValue}
+                  onChange={(e) => handleUpdateBook(e)}
+                  onKeyDown={(e) => handleEnterKeyPress(e)}
+                  min={0}
+                  max={book.pages}
+                  ref={inputRef}
+                />
+              ) : (
+                <span style={{ fontWeight: 'normal' }}>{inputValue}</span>
+              )}{' '}
+              of {book.pages} ({progress}%)
+              <br />
+            </div>
             <LinearProgress variant="determinate" value={progress} />
             <br />
             <div className="update-delete">
@@ -189,7 +187,6 @@ const BookItem = ({
           className="list-item"
           style={{
             backgroundColor: 'white',
-            borderColor: 'white',
           }}
         >
           <div className="view-book" onClick={handleViewBookInfo}>

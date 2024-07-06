@@ -1,10 +1,10 @@
+import { paperClasses } from '@mui/material'
 import { useState } from 'react'
 import React from 'react'
+import { RiCloseLine } from 'react-icons/ri'
 import { v4 as uuidv4 } from 'uuid'
 
-const NewBookForm = ({ userName, setBooks }) => {
-  const [addButton, setAddButton] = useState('Add New Book')
-  const [formDisplay, setFormDisplay] = useState(false)
+const NewBookFormModal = ({ userName, setBooks, setShowNewBookForm }) => {
   const [bookAlreadyPresent, setBookAlreadyPresent] = useState(false)
   const [newBook, setNewBook] = useState({
     name: '',
@@ -38,6 +38,7 @@ const NewBookForm = ({ userName, setBooks }) => {
       const data = await response.json()
       if (data.message === 'Book already exists') {
         setBookAlreadyPresent(true)
+        return;
       } else if (data.message === 'Book added successfully') {
         setBooks((prevBooks) => [...prevBooks, bookItem])
         setBookAlreadyPresent(false)
@@ -51,11 +52,10 @@ const NewBookForm = ({ userName, setBooks }) => {
     const today = new Date()
     return today.getFullYear()
   }
-  const handleSubmit = (e) => {
+  const handleAddBook = async (e) => {
     e.preventDefault()
-    onSubmit(newBook)
-    if (!bookAlreadyPresent) {
-      handleFormChange()
+    await onSubmit(newBook)
+    if (bookAlreadyPresent) {
       setNewBook({
         name: '',
         author: '',
@@ -65,16 +65,7 @@ const NewBookForm = ({ userName, setBooks }) => {
         status: 'Select a status',
         pagesRead: null,
       })
-    } else {
-      setFormDisplay(true)
     }
-  }
-  const handleFormChange = () => {
-    setFormDisplay((current) => !current)
-    setAddButton(
-      (current) =>
-        (current = current === 'Add New Book' ? 'Close form' : 'Add New Book')
-    )
   }
   const changeNewBookInfo = (e) => {
     if (bookAlreadyPresent) {
@@ -97,8 +88,7 @@ const NewBookForm = ({ userName, setBooks }) => {
       setNewBook({ ...newBook, [name]: value })
     }
   }
-  const handleDeleteForm = () => {
-    handleFormChange()
+  const handleCancelForm = () => {
     setNewBook({
       name: '',
       author: '',
@@ -110,14 +100,15 @@ const NewBookForm = ({ userName, setBooks }) => {
     })
   }
   return (
-    <div className='new-book-form-container'>
-      <form
-        onSubmit={(e) => handleSubmit(e)}
-        className="new-book-form"
-        style={{ display: formDisplay ? 'block' : 'none' }}
-        noValidate // should be resolved as soon as possible
-      >
-        <div className="new-book-details">
+    <>
+      <div className="new-book-form-modal-outside-container" onClick={() => setShowNewBookForm(false)} />
+      <div className='new-book-form-modal'>
+        <div className="new-book-form-modal-header">
+          <button className="new-book-form-modal-close-icon" onClick={() => setShowNewBookForm(false)}>
+            <RiCloseLine />
+          </button>
+        </div>
+        <div className="new-book-form">
           <label htmlFor="name">Name of the Book: </label>
           <input
             value={newBook.name}
@@ -215,7 +206,6 @@ const NewBookForm = ({ userName, setBooks }) => {
             />
           </div>
           <br />
-
           <p
             className="book-already-present"
             style={{ display: bookAlreadyPresent ? 'block' : 'none' }}
@@ -223,17 +213,21 @@ const NewBookForm = ({ userName, setBooks }) => {
             This book is already present in your library
           </p>
         </div>
-        <div className="add-delete">
-          <button id="add" className="add" type="submit">
+        <div className="new-book-form-modal-buttons">
+          <button
+            id="add"
+            className="add"
+            onClick={(e) => handleAddBook(e)}
+          >
             Add
           </button>
-          <button id="delete" className="delete" onClick={handleDeleteForm}>
-            Delete
+          <button id="cancel" className="cancel" onClick={() => { handleCancelForm(); setShowNewBookForm(false) }}>
+            Cancel
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   )
 }
 
-export default NewBookForm
+export default NewBookFormModal
