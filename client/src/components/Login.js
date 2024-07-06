@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import LocalLibraryRoundedIcon from '@mui/icons-material/LocalLibraryRounded'
-import './login.css'
+import { FaBookReader } from "react-icons/fa";
 
 const Login = (props) => {
   const { userName, setUserName, setEmail, setIsAuthenticated } = props
@@ -10,8 +9,8 @@ const Login = (props) => {
   const [wrongUserName, setWrongUserName] = useState('')
   const [invalidPassword, setInvalidPassword] = useState(false)
   const navigate = useNavigate()
-  const localhost_server_addr = process.env.REACT_APP_LOCALHOST_SERVER_ADDR
-  const vercel_server_addr = process.env.REACT_APP_VERCEL_SERVER_ADDR
+  const localhost_server_addr = 'http://localhost:3001'
+  const vercel_server_addr = 'https://book-tracker-backend.onrender.com'
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -19,7 +18,7 @@ const Login = (props) => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`${vercel_server_addr}/login`, {
+      const response = await fetch(`${localhost_server_addr}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,10 +45,12 @@ const Login = (props) => {
     }
   }
   return (
-    <>
+    <div className='login'>
       <div className="login-navbar">
-        <LocalLibraryRoundedIcon fontSize="large" />
-        <div className="title">Book Tracker</div>
+        <div className="login-title">
+          <FaBookReader color='white' />
+          Book Tracker
+        </div>
         <p className="signup-instead">
           Don't have an account? <a href="/signup">Signup instead</a>
         </p>
@@ -93,15 +94,16 @@ const Login = (props) => {
             className="user-not-found"
             style={{ display: userNotFound ? 'block' : 'none' }}
           >
-            User with userName {wrongUserName} not found.
+            User with username {wrongUserName} not found.
           </p>
           <button type="submit" className="login-button">
             Confirm Login
           </button>
         </form>
       </div>
-      <div className="login-footer">Copyright &copy; {getYear()}</div>
-    </>
+      <div className="login-footer">Copyright &copy; {getYear()}
+      </div>
+    </div>
   )
 }
 

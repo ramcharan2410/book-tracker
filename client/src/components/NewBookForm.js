@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import './newBookForm.css'
 
 const NewBookForm = ({ userName, setBooks }) => {
   const [addButton, setAddButton] = useState('Add New Book')
